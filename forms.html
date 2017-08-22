@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form access and validation</title>
+</head>
+
+<body>
+    <form name="test">
+        Username: <input type="text" name="username" value="Your user name"> <br>
+        Password: <input type="password" name="password" value="Your password"> <br>
+        <input type="checkbox" name="accept"> Do you accept Terms & Conditions? <br>
+        <input type="submit" name="send" value="Send" onclick="validate()">
+    </form>
+
+    <form>
+        <select name="background" size="1" onchange="document.bgColor=background.options[background.selectedIndex].value">
+            <option value="730200">Red</option>
+            <option value="0D09A3">Blue</option>
+        </select>
+    </form>
+
+    <script>
+        
+        const test     = document.test.length;
+        const username = document.test.username.value;
+        
+        console.log(test);
+        console.log(username);
+
+        function validate() {
+            
+            if (document.test.accept.checked) {
+                
+                alert('Checkbox is checked');
+
+            } else {
+
+                alert('Checkbox is not checked');
+                
+            }
+
+        }
+
+    </script>
+</body>
+</html>
