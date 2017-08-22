@@ -1,2 +1,2 @@
 # practice
-Practicing what I have learned. Currently JavaScript.
+Practicing what I've learned. Currently JavaScript.
