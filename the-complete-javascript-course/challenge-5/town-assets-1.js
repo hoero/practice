@@ -15,15 +15,12 @@ All the report data should be printed to the console.
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 */
 
-
 // 1. Classes for town assets (parks and streets)
     class TownAsset {
-        
         constructor(name, buildYear) {
             this.name      = name;
             this.buildYear = buildYear;
         }
-
     }
     
     class Park extends TownAsset {
@@ -63,7 +60,6 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
     class Street extends TownAsset {
         
         constructor(name, buildYear, length, size = 'normal') {
-
             // Name base on size
             if (size === 'tiny' || size === 'small' || size === 'normal') {
                 
@@ -87,15 +83,12 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
 // 2. Create assets
     // 2.1 Parks
-        // Green Park
         const park1                                                 = new Park('Green', 1947, 950, 1900);
         const [park1TreeDensity, park1Age, park1Boolean, park1Name] = park1.get();
 
-        // National Park
         const park2                                                 = new Park('National', 1917, 2500, 5000);
         const [park2TreeDensity, park2Age, park2Boolean, park2Name] = park2.get();
 
-        // Oak Park
         const park3                                                 = new Park('Oak', 1967, 800, 1600);
         const [park3TreeDensity, park3Age, park3Boolean, park3Name] = park3.get();
         
@@ -130,17 +123,13 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
         let parks = 0, ages = 0;
         
         parksMap.forEach((value, key) => {
-
             // Determine parks quantity
             if (typeof(key) === 'string') {
-                if (key.includes('Park')) {
-                    parks++;
-                }
+                if (key.includes('Park')) { parks++; }
             }
 
             // Calculate parks ages
             if (typeof(key) === 'number') { ages += key; }
-            
         });
 
         // Return number of parks and the average age of town parks
@@ -153,13 +142,9 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
         let streets = streetsMap.size, totalLength = 0;
         
+        // Total length
         streetsMap.forEach((value, key) => {
-            if (typeof(key) === 'string') {
-
-                // Total length
-                totalLength += value[0];
-
-            }
+            if (typeof(key) === 'string') { totalLength += value[0]; }
         })
 
         // Return number of streets, and total and average length of the town's streets
@@ -169,7 +154,6 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
 // 5. Show the report of town assets
     const report = function (parksMap, streetsMap) {
-
         /*
         REPORT FORMAT:
             ----PARKS REPORT----
@@ -196,7 +180,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
         // If a parks map is provided
         if (parksMap !== undefined) {
-            
+
             // Get number of parks and the average age of town parks
             const [parks, averageAge] = parksAndAge(parksMap);
 
@@ -214,7 +198,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
             });
             
-            // (1th) If it's equal to true, it will show that park(s) with more than 1000 trees
+            // (1th) If it's equal to true, it will show the park(s) with more than 1000 trees
             for (let [key, value] of parksMap.entries()) {
 
                 // For less code, this could be in the same loop that is above. But it will appear next to the same park (key) that has 'true', which is not the desire format of the report.
@@ -223,12 +207,12 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
                 }
 
             }
-            
+
         }
         
         // If a streets map is provided
-        if (streetsMap !== undefined) { 
-
+        if (streetsMap !== undefined) {
+             
             // Get number of streets, and total and average length of the town's streets
             const [streets, totalLength, averageLength] = streetsTotalAverageLength(streetsMap);
 
@@ -239,7 +223,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
             for (let [key, value] of streetsMap.entries()) {
                 console.log(`${key}, built in ${value[1]}, is a ${value[2]} street.`);
             }
-            
+
         }
         
     }

@@ -15,7 +15,6 @@ All the report data should be printed to the console.
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 */
 
-
 // 1. Classes for town assets (parks and streets)
     class TownAsset {
         
@@ -48,7 +47,6 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
     class Street extends TownAsset {
         
         constructor(name, buildYear, length, size = 'n', whereToPush = townStreets) {
-
             // Name base on size
             if (size === 't' || size === 's' || size === 'n') { // t = tiny, s = small, n = normal
                 
@@ -87,17 +85,17 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
 // 2. Create assets
     // 2.1 Parks
-        const townParks = [];
-        const park1     = new Park('Green', 1947, 950, 1900);
-        const park2     = new Park('National', 1917, 2500, 5000);
-        const park3     = new Park('Oak', 1967, 800, 1600);
+    const townParks = [];
+    const park1     = new Park('Green', 1947, 950, 1900);
+    const park2     = new Park('National', 1917, 2500, 5000);
+    const park3     = new Park('Oak', 1967, 800, 1600);
 
     // 2.2 Streets
-        const townStreets = [];
-        const street1     = new Street('Ocean', 1999, 2, 'b');
-        const street2     = new Street('Evergreen', 2008, 1, 's');
-        const street3     = new Street('4th', 2015, 1.5);
-        const street4     = new Street('Sunset', 1982, 2.5, 'h');
+    const townStreets = [];
+    const street1     = new Street('Ocean', 1999, 2, 'b');
+    const street2     = new Street('Evergreen', 2008, 1, 's');
+    const street3     = new Street('4th', 2015, 1.5);
+    const street4     = new Street('Sunset', 1982, 2.5, 'h');
 
 // 3. Calculate total and average of any asset
     const totalAverage = function (array) {
@@ -121,7 +119,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
 
             parksArray.forEach((current) => console.log(`${current.name} has a tree density of ${current.treeDensity()} trees per square km.`));
             
-            // If it's equal to true, it will show that park(s) with more than 1000 trees
+            // If it's equal to true, it will show the park(s) with more than 1000 trees
             for (const current of parksArray) {
                 
                 if (current.trees > 1000) {
