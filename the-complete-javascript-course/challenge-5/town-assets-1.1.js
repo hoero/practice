@@ -26,6 +26,13 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
         // Determine age
         age() { return new Date().getFullYear() - this.buildYear; }
 
+        // Calculate total and average of any asset
+        static totalAverage(array) {
+            const sum = array.reduce((previous, current) => previous + current);
+    
+            return [sum.toFixed(2), (sum / array.length).toFixed(2)];
+        }
+
     }
     
     class Park extends TownAsset {
@@ -97,22 +104,15 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
     const street3     = new Street('4th', 2015, 1.5);
     const street4     = new Street('Sunset', 1982, 2.5, 'h');
 
-// 3. Calculate total and average of any asset
-    const totalAverage = function (array) {
-        const sum = array.reduce((previous, current) => previous + current);
-
-        return [sum.toFixed(2), (sum / array.length).toFixed(2)];
-    }
-
-// 4. Show the report of town assets
+// 3. Show the report of town assets
     const report = function (parksArray, streetsArray) {
 
         // If a parks array is provided
         if (parksArray !== undefined) {
 
             // Get total and average age
-            const ages = parksArray.map((current) => current.age());
-            const [total, average] = totalAverage(ages);
+            const ages             = parksArray.map((current) => current.age());
+            const [total, average] = TownAsset.totalAverage(ages);
 
             // Display it
             console.log(`----PARKS REPORT----\nOur ${parksArray.length} parks have an average age of ${average} years.`);
@@ -134,8 +134,8 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
         if (streetsArray !== undefined) { 
 
             // Get total and average length of the town's streets
-            const lengths = streetsArray.map((current) => current.length);
-            const [totalLength, averageLength] = totalAverage(lengths);
+            const lengths                      = streetsArray.map((current) => current.length);
+            const [totalLength, averageLength] = TownAsset.totalAverage(lengths);
 
             // All streets
             console.log(`----STREETS REPORT----\nOur ${streetsArray.length} streets have a total length of ${totalLength} km, with an average of ${averageLength} km.`);
@@ -149,5 +149,5 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
         
     }
 
-    // 4.1 Show it!!!
+    // 3.1 Show it!!!
     report(townParks, townStreets);
