@@ -38,7 +38,7 @@ HINT: Use some of the ES6 features: classes, subclasses, template strings, defau
         },
 
         // 1.5 Calculate total and average of any asset
-        totalAverage: function calcTotalAge(array) {
+        totalAverage: function totalAverage(array) {
             const sum = array.reduce((previous, current) => previous + current);
 
             return [sum.toFixed(2), (sum / array.length).toFixed(2)];
