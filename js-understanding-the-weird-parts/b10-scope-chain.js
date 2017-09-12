@@ -90,7 +90,7 @@ a5(); // sets b on a
 a5.b5(); // prints 10
 
 // -------------------------------------------------------------------------
-// Scope Chain 6, When the  inner function a is commented out the console logs 10, else it logs 1.
+// Scope Chain 6, When the inner function a is commented out the console logs 10, else it logs 1.
 
 var a6 = 1;
 
@@ -160,3 +160,30 @@ myObject.func();
 /*  Why is it undefined?
     Because each function automatically receives a "this" when it's created, it doesn't need to go up any prototype chain — it just refers to the one it already has. Your IIFE isn't being called on any object so it's referring to the default window object and looking for a "foo" variable in the global scope. The "self" in the IIFE has to go up the prototype chain because there is no "self" in the IIFE.
  */
+
+
+// -------------------------------------------------------------------------
+// Scope Chain 8
+function a8() {
+    
+    var x = 1;
+
+    { var x = 2; console.log(x); } // 2
+
+    console.log(x); // 2
+
+}
+
+a8();
+
+function aWithLet() {
+    
+    var x = 1;
+
+    { let x = 2; console.log(x); } // 2
+
+    console.log(x); // 1
+
+}
+
+aWithLet();
