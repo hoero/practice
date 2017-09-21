@@ -76,6 +76,14 @@ function multiply(a, b) {
 }
 
 var multiplyByTwo = multiply.bind(null, 2); // The 'this' variable should always be set, if there is no argument to set it, use the 'this' keyword or 'null' instead.
+
+/**
+ * bind modifies function signature to be just multiply(b) before return. so it will look like this,
+ * multiply(b) {
+        return 2 * b;
+    }; 
+ */
+
 console.log(multiplyByTwo(4)); // 8
 
 
