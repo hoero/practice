@@ -110,6 +110,27 @@
 
             // Make chainable
             return this;
+        },
+        
+        // This uses a selector, whether or not it's formal and sets up the greeting itself,
+        // and updates whatever value is there in the DOM
+        DOMgreet: function(selector, formal) {
+            if (!$) {
+                throw 'jQuery not loaded';
+            }
+
+            if (!selector) {
+                throw 'Missing jQuery selector';
+            }
+
+            // Determines the message
+            let msg = this.isFormal(formal);
+
+            // Injects the message in the chosen place in the DOM
+            $(selector).html(msg);
+
+            // Make chainable
+            return this;
         }
 
     };
