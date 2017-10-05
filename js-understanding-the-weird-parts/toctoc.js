@@ -26,6 +26,31 @@
 
 (function(global, obj) {
 
-    
+    // Sets up the tocToc object and returns it
+    var tocToc = function(firsrtName, lastName, language) {
+        
+        return new tocToc.init(firsrtName, lastName, language);
+        
+    };
+
+    // tocToc prototype, where methods are located
+    tocToc.prototype = {};
+
+    // tocToc function constructor
+    tocToc.init = function(firsrtName, lastName, language) {
+
+        var self = this;
+
+        self.firsrtName = firsrtName || '';
+        self.lastName   = lastName || '';
+        this.language   = language || 'en';
+        
+    };
+
+    // Sets init protorype to be tocToc's
+    tocToc.init.prototype = tocToc.prototype;
+
+    // Exposes tocToc and the alias tt to the global environment
+    global.tocToc = global.tt = tocToc;
     
 }(window, jQuery));
