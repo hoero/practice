@@ -2,7 +2,7 @@ module.exports = {
     "extends": "airbnb",
     "plugins": [
         "react",
-        "jsx-ally",
+        "jsx-a11y",
         "import"
     ],
     "rules": {
