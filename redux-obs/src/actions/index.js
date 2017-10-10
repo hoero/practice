@@ -1,4 +1,4 @@
-export const LOAD_STORIES = 'lOAD_STORIES';
+export const LOAD_STORIES  = 'lOAD_STORIES';
 export const CLEAR_STORIES = 'CLEAR_STORIES';
 
 export function loadStories() {
