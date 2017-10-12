@@ -1,39 +1,47 @@
 // -------------------------------------------------------------------------
 // Explore how to use AJAX and get started creating Dynamic JavaScript
 
-// Object creation
-const httpRequest = new XMLHttpRequest();
-// console.log(httpRequest);
+/**
+ * This is function is essentially kind of like a document ready,
+ * which just waits for the DOM to load, before we try to fire this off.
+ * So it's a good practice to make sure we're ready to go
+ * before we actually try to fire off and connect with the DOM information.
+ */
+(function() {
+    // Remember to put <button id="btn">Click Me</button> in body
+    document.getElementById('btn').onclick = showData;
 
-// readyState
-httpRequest.onreadystatechange = changeMe;
+    function showData() {
+        // Object creation
+        const httpRequest = new XMLHttpRequest();
 
-// Connection with external file
-httpRequest.open( 'GET', 'ajax-json/test.txt', true );
-httpRequest.send();
-// console.log(httpRequest);
+        // readyState
+        httpRequest.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
 
-function changeMe() {
-    if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                // Put it in the HTML, remember to put <div id="output"></div> in body
+                document.getElementById('output').innerHTML = this.responseText;
 
-        // Put it in the HTML, remember to put <div id="output"></div> in body
-        document.getElementById('output').innerHTML = httpRequest.responseText;
+                console.log(this.responseText);
 
-        console.log(httpRequest);
-        console.log(httpRequest.responseText);
+            } else {
 
-    } else {
+                console.log('Not ready yet :(');
 
-        console.log('Not ready yet :(');
-
+            }
+            
+            // console.log(httpRequest.readyState);
+            /**
+             * 0 -> starting point
+             * 1 -> loading
+             * 2 -> loaded
+             * 3 -> interacting
+             * 4 -> completed
+             */
+        };
+        
+        // Connection with external file
+        httpRequest.open( 'GET', 'ajax-json/test.txt', true );
+        httpRequest.send();
     }
-
-    // console.log(httpRequest.readyState);
-    /**
-     * 0 -> starting point
-     * 1 -> loading
-     * 2 -> loaded
-     * 3 -> interacting
-     * 4 -> completed
-     */
-}
+}());
