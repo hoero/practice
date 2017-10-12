@@ -8,6 +8,13 @@
  * before we actually try to fire off and connect with the DOM information.
  */
 (function() {
+    
+    const myData = 'my new data';
+    console.log(myData);
+    // This encode the 'spaces' to '%20', because that's the URI equivalent of a space. We need a string value with no spaces to be able to post it over.
+    console.log(encodeURIComponent(myData));
+    const myPost = `nameKey=value&mydata=${encodeURIComponent(myData)}`;
+    
     // Remember to put <button id="btn">Click Me</button> in body
     document.getElementById('btn').onclick = showData;
 
@@ -44,4 +51,5 @@
         httpRequest.open( 'GET', 'ajax-json/test.txt', true );
         httpRequest.send();
     }
+
 }());
