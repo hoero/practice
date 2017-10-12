@@ -168,7 +168,7 @@ var budgetController = (function () {
               totalInc  : data.totals.inc,
               totalExp  : data.totals.exp,
               percentage: data.percentage
-          }  
+          };  
         },
 
         // Test if data has been updated
@@ -218,7 +218,7 @@ var UIController = (function () {
                 return addComma(integer.substring(0, integer.length - 3))+ ',' + integer.substr(integer.length - 3, integer.length); // input -> 23510, output -> 23,510
             }
 
-        };
+        }
 
         // Returns the absolute number
         number = Math.abs(number);
@@ -270,7 +270,7 @@ var UIController = (function () {
                 // Sets where the html will be added
                 element = DOMe.incomeList;
 
-                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
 
                 // html = '<div class="item clearfix" id="inc-' + obj.id + '"><div class="item__description">' + obj.description + '</div><div class="right clearfix"><div class="item__value">' + obj.value + '</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             
@@ -279,7 +279,7 @@ var UIController = (function () {
                 // Sets where the html will be added
                 element = DOMe.expensesList;
 
-                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
 
                 // html = '<div class="item clearfix" id="exp-' + obj.id + '"><div class="item__description">' + obj.description + '</div><div class="right clearfix"><div class="item__value">' + obj.value + '</div><div class="item__percentage">' + obj.percentage + '</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             
@@ -331,7 +331,7 @@ var UIController = (function () {
 
             var type;
 
-            obj.budget > 0 ? type = 'inc' : type = 'exp'; // Defines the type
+            type = obj.budget > 0 ? 'inc' : 'exp'; // Defines the type
             
             DOMe.budgetLabel.textContent     = formatNumber(obj.budget, type);
             DOMe.incomeLabel.textContent     = formatNumber(obj.totalInc, 'inc');
@@ -432,7 +432,7 @@ var appController = (function (dataCtrl, UICtrl) {
 
             if (element === document) {
                 break;
-            };
+            }
 
             console.log(!match.test(element.id));
             console.log(!match.test('inc-0'));
@@ -443,7 +443,7 @@ var appController = (function (dataCtrl, UICtrl) {
             
         }
 
-    }
+    };
 
     // Calculate and update the budget
     var updateBudget = function () {
@@ -471,7 +471,7 @@ var appController = (function (dataCtrl, UICtrl) {
         // 3. Update the UI with the new percentages
         UICtrl.displayPercentages(percentages);
 
-    }
+    };
 
     // Add item
     var addItemCtrl = function () {
