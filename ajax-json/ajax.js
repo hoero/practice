@@ -10,15 +10,13 @@
 (function() {
     
     const myData = 'my new data';
-    console.log(myData);
-    // This encode the 'spaces' to '%20', because that's the URI equivalent of a space. We need a string value with no spaces to be able to post it over.
-    console.log(encodeURIComponent(myData));
-    const myPost = `nameKey=value&mydata=${encodeURIComponent(myData)}`;
     
     // Remember to put <button id="btn">Click Me</button> in body
     document.getElementById('btn').onclick = showData;
 
     function showData() {
+        const myPost = `nameKey=value&mydata=${encodeURIComponent(myData)}`;
+
         // Object creation
         const httpRequest = new XMLHttpRequest();
 
@@ -48,8 +46,9 @@
         };
         
         // Connection with external file
-        httpRequest.open( 'GET', 'ajax-json/test.txt', true );
-        httpRequest.send();
+        httpRequest.open( 'POST', 'ajax-json/test.php', true );
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send(myPost);
     }
 
 }());
