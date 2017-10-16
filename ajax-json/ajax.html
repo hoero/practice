@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../favicon.ico">
+    <title>Ajax</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <input type="text" id="ktext">
+    <input type="text" id="dtext">
+
+    <button id="btn">Click Me</button>
+
+    <script>
+        // -------------------------------------------------------------------------
+        // Explore how to use AJAX and get started creating Dynamic JavaScript
+
+        /**
+         * This is function is essentially kind of like a document ready,
+         * which just waits for the DOM to load, before we try to fire this off.
+         * So it's a good practice to make sure we're ready to go
+         * before we actually try to fire off and connect with the DOM information.
+         */
+        (function() {
+            document.getElementById('btn').onclick = showData;
+
+            function showData() {
+                const myData  = document.getElementById('ktext').value;
+                const nameKey = document.getElementById('dtext').value;
+
+                const myPost = `nameKey=${encodeURIComponent(nameKey)}&mydata=${encodeURIComponent(myData)}`;
+
+                // Object creation
+                const httpRequest = new XMLHttpRequest();
+
+                // readyState
+                httpRequest.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+
+                        document.getElementById('output').innerHTML = this.responseText;
+
+                        console.log(this.responseText);
+
+                    } else {
+
+                        console.log('Not ready yet :(');
+
+                    }
+                    
+                    /**
+                     * 0 -> starting point
+                     * 1 -> loading
+                     * 2 -> loaded
+                     * 3 -> interacting
+                     * 4 -> completed
+                     */
+                };
+                
+                // Connection with external file
+                httpRequest.open( 'POST', 'test.php', true );
+                httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                httpRequest.send(myPost);
+            }
+
+        }());
+    </script>
+</body>
+
+</html>
