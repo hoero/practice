@@ -43,13 +43,10 @@
                 httpRequest.onreadystatechange = function() {
                     if (this.readyState === 4 && this.status === 200) {
 
-                        document.getElementById('output').innerHTML = this.responseText;
-
-                        console.log(this.responseText);
-
-                    } else {
-
-                        console.log('Not ready yet :(');
+                        const response = JSON.parse(this.responseText);
+                        
+                        // Outputs the response
+                        document.getElementById('output').innerHTML = `${response.name} <br/> ${response.data} <br/> ${response.response}`;
 
                     }
                     
