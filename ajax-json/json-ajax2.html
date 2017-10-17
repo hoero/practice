@@ -12,12 +12,15 @@
 <body>
     <div    id = "output">Nothing</div>
     <button id = "btn">Get Data</button>
+    <input type="text" id="myText" value="Hello">
 
     <script>
 
         let   myContainer = '';
 
         document.getElementById('btn').addEventListener('click', function() {
+
+            const value = document.getElementById('myText').value;
 
             const httpRequest = new XMLHttpRequest();
 
@@ -27,7 +30,7 @@
                 }
             }
             
-            httpRequest.open('GET', 'data.php', true);
+            httpRequest.open('GET', `data.php?name=${value}`, true);
 
             httpRequest.send();
             
