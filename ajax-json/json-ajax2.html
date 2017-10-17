@@ -23,11 +23,11 @@
 
             httpRequest.onreadystatechange = function() { 
                 if (this.readyState === 4 && this.status === 200) {
-                    console.log(this.responseText);
+                    document.getElementById('output').innerHTML = this.responseText;
                 }
             }
             
-            httpRequest.open('GET', 'data.txt', true);
+            httpRequest.open('GET', 'data.php', true);
 
             httpRequest.send();
             
