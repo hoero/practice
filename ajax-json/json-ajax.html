@@ -17,7 +17,7 @@
         let   myContainer = '';
         const httpRequest = new XMLHttpRequest();
         
-        httpRequest.open('GET', 'data.json', true);
+        httpRequest.open('GET', 'https://api.myjson.com/bins/yu2nr', true);
 
         httpRequest.onreadystatechange = function() {
             if (this.readyState === 4) {
@@ -25,7 +25,7 @@
                 const response = JSON.parse(this.responseText);
                 
                 for (var obj in response) {
-                    myContainer += `${response[obj].name.first} ${response[obj].name.last} <br />`
+                    myContainer += `${response[obj].name.first} ${response[obj].name.last} ${response[obj].age} <br />`
                 }
 
                 document.getElementById('output').innerHTML = myContainer;
