@@ -10,17 +10,22 @@
 </head>
 
 <body>
-    <div    id = "output">Nothing</div>
+    <div id="output">Nothing sent yet</div>
+    <br>
+    <input type="text" id="name" placeholder="Name">
+    <br>
+    <input type="text" id="age" placeholder="Age">
+    <br>
     <button id = "btn">Get Data</button>
-    <input type="text" id="myText" value="Hello">
 
     <script>
 
-        let   myContainer = '';
+        let myContainer = '';
 
         document.getElementById('btn').addEventListener('click', function() {
 
-            const value = document.getElementById('myText').value;
+            const name = document.getElementById('name').value;
+            const age  = document.getElementById('age').value;
 
             const httpRequest = new XMLHttpRequest();
 
@@ -34,7 +39,7 @@
 
             httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-            httpRequest.send(`name=${value} &age=55`);
+            httpRequest.send(`name=${name}&age=${age}`);
             
         });
         
