@@ -30,9 +30,11 @@
                 }
             }
             
-            httpRequest.open('GET', `data.php?name=${value}`, true);
+            httpRequest.open('POST', `data.php`, true);
 
-            httpRequest.send();
+            httpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+            httpRequest.send(`name=${value} &age=55`);
             
         });
         
