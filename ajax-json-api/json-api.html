@@ -14,21 +14,30 @@
 
     <script>
 
-        const friends = [];
+        const myObj = {
+            "people" : [
+                {
+                    "firstName": "Laurence",
+                    "lastName" : "Smith",
+                    "age"      : 50
+                },
+                {
+                    "firstName": "John",
+                    "lastName" : "Doe",
+                    "age"      : 30
+                }
+            ]
+        };
+
+        // sessionStorage.setItem('friend', JSON.stringify(myObj));
+
+        const myList    = JSON.parse(sessionStorage.getItem('friend'));
+        console.log(myList);
         
-        friends[0] = 'one';
-        friends[1] = 'two';
-        friends[5] = 'five';
-
-        friends['first']  = 'First test';
-        friends['second'] = 'Second test';
-
-        var transformed = JSON.parse(JSON.stringify(friends));
-        // transformed.first = 'First';
-
-        console.log(friends);     // ["one", "two", empty × 3, "five", first: "First test", second: "Second test"]
-        console.log(transformed); // ["one", "two", null, null, null, "five"]
-          
+        const strPeople = JSON.stringify(myObj);
+        
+        const myFriends = JSON.parse(strPeople);
+        
     </script>
 </body>
 
