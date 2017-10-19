@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../favicon.ico">
+    <title>JSON + API</title>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <script>
+
+        const myObj = {
+            "people" : [
+                {
+                    "firstName": "Laurence",
+                    "lastName" : "Smith",
+                    "age"      : 50
+                },
+                {
+                    "firstName": "John",
+                    "lastName" : "Doe",
+                    "age"      : 30
+                }
+            ]
+        };
+
+        // sessionStorage.setItem('friend', JSON.stringify(myObj));
+
+        const myList    = JSON.parse(sessionStorage.getItem('friend'));
+        console.log(myList);
+        
+        const strPeople = JSON.stringify(myObj);
+        
+        const myFriends = JSON.parse(strPeople);
+        
+    </script>
+</body>
+
+</html>

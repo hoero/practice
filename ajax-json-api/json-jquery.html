@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../favicon.ico">
+    <title>JSON + API</title>
+</head>
+
+<body>
+    <button id="btn">Click Me</button>
+    <br>
+    <br>
+    <div id="output"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+            $('#btn').click(function() {
+
+                $.getJSON('https://api.myjson.com/bins/10mf0n', function(data) {
+
+                    $.each(data.people, function( index, key ) {
+                        $('#output').append(`${key.firstName} ${key.lastName} ${key.age} <br>`);
+                    })
+                    
+                });
+
+            });
+        });
+        
+    </script>
+</body>
+
+</html>
