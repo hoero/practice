@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="../favicon.ico">
     <title>JSON + API</title>
+
+    <style>
+        img { max-width: 150px; }
+    </style>
 </head>
 
 <body>
@@ -21,9 +25,15 @@
         $(document).ready(function() {
             $('#btn').click(function() {
 
-                $.getJSON('http://api.icndb.com/jokes/random?firstName=John&amp;lastName=Doe', function(data) {
+                $.getJSON('https://api.mixcloud.com/popular/', function(data) {
+                    
+                    $.each(data.data, function( i, val ) {
 
-                    $('#output').append(`${data.value.joke} <br> <br>`);
+                        console.log(val);
+                        
+                        $('#output').append(`${val.name} <br> <br> <img src='${val.pictures['320wx320h']}' >`);
+
+                    });
                     
                 });
 
