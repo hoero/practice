@@ -11,6 +11,8 @@
 
 <body>
     <button id="btn">Click Me</button>
+    <br>
+    <br>
     <div id="output"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,7 +22,11 @@
             $('#btn').click(function() {
 
                 $.getJSON('https://api.myjson.com/bins/10mf0n', function(data) {
-                    console.log(data.people[0].firstName);
+
+                    $.each(data.people, function( index, key ) {
+                        $('#output').append(`${key.firstName} ${key.lastName} ${key.age} <br>`);
+                    })
+                    
                 });
 
             });
