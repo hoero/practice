@@ -30,7 +30,7 @@ let person = {
 };
 
 function makeAge(person) {
-    let ageSymbol = Symbol.for('age');
+    let ageSymbol     = Symbol.for('age');
 
     person[ageSymbol] = 27;
 }
@@ -43,7 +43,7 @@ console.log(person[sharedSymbol]); // 27
 symbol = Symbol('age');
 
 function makeAgeUnique(person) {
-    let ageSymbol = Symbol('age');
+    let ageSymbol     = Symbol('age');
 
     person[ageSymbol] = 27;
 }
@@ -51,3 +51,20 @@ function makeAgeUnique(person) {
 makeAgeUnique(person);
 
 console.log(person[symbol]); // undefined
+
+//endregion -------------------------------------------------------------------------
+//region Advantages of unique Symbols
+symbol     = Symbol.for('age');
+
+person.age = 30;
+
+function makeAgeUniqueAgain(person) {
+    let ageSymbol     = Symbol.for('age');
+
+    person[ageSymbol] = 27;
+}
+
+makeAgeUniqueAgain(person);
+
+console.log(person[symbol]); // 27
+console.log(person.age);     // 30
