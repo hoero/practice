@@ -68,3 +68,26 @@ makeAgeUniqueAgain(person);
 
 console.log(person[symbol]); // 27
 console.log(person.age);     // 30
+
+//endregion -------------------------------------------------------------------------
+//region Well-Known Symbols
+
+// toStringTag
+class Person {}
+
+let personClass = new Person();
+
+console.log(personClass); // Person {}
+
+Person.prototype[Symbol.toStringTag] = 'PersonClass';
+
+// toPrimitive
+let numbers = [1, 2, 3];
+
+console.log(numbers + 1); // 1,2,31
+
+numbers[Symbol.toPrimitive] = function() {
+    return 999;
+}
+
+console.log(numbers + 1); // 1000
