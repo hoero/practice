@@ -37,3 +37,34 @@ array[Symbol.iterator] = function() {
 for (let element of array) {
     console.log(element); // 11 12 13 14 15
 }
+
+//endregion -------------------------------------------------------------------------
+//region Creating a Custom Iterateable Object
+
+let person = {
+    name: 'Max',
+    hobbies: ['Sports', 'Cooking'],
+    [Symbol.iterator]() {
+        let i = 0;
+
+        let hobbies = this.hobbies;
+        
+        return {
+            next() {
+                let value = hobbies[i];
+                
+                i++;
+
+                return {
+                    done : i > hobbies.length ? true: false,
+                    value: value
+                }
+            }
+        }
+    }
+};
+
+
+for (let hobby of person) {
+    console.log(hobby); // Sports Cooking
+}
