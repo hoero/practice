@@ -68,3 +68,17 @@ let person = {
 for (let hobby of person) {
     console.log(hobby); // Sports Cooking
 }
+
+//endregion -------------------------------------------------------------------------
+//region Generators Basics
+
+function *select() {
+    yield 'House';
+    yield 'Garage';
+}
+
+it = select();
+
+console.log(it.next()); // {value: "House", done: false}
+console.log(it.next()); // {value: "Garage", done: false}
+console.log(it.next()); // {value: undefined, done: true}
