@@ -112,3 +112,42 @@ console.log(it.next()); // {value: 1, done: false}
 console.log(it.next()); // {value: 2, done: false}
 console.log(it.next()); // {value: undefined, done: true}
 console.log(it.next()); // {value: undefined, done: true}
+
+//endregion -------------------------------------------------------------------------
+//region Controlling Iterators with throw and return
+
+it = gene(2);
+
+// console.log(it.next());                    // {value: 0, done: false}
+// console.log(it.throw());                   // Uncaught undefined
+// console.log(it.throw('An error occurred')); // Uncaught An error occurred
+// console.log(it.next());
+// console.log(it.next());
+
+// With argument and try/catch
+function *gener(end) {
+    for (var i = 0; i < end; i++) {
+        try {
+
+            yield i;  
+
+        } catch (error) {
+
+            console.log(error);
+
+        }
+    }
+}
+
+it = gener(2);
+
+console.log(it.next());                      // {value: 0, done: false}
+console.log(it.throw('An error occurred'));  // An error occurred
+                                             // {value: 1, done: false}
+console.log(it.next());                      // {value: undefined, done: true} 
+console.log(it.next());                      // {value: undefined, done: true} 
+
+console.log(it.next());                      // {value: 0, done: false}
+console.log(it.return('An error occurred')); // {value: "An error occurred", done: true}
+console.log(it.next());                      // {value: undefined, done: true} 
+console.log(it.next());                      // {value: undefined, done: true} 
