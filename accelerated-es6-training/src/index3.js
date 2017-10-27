@@ -82,3 +82,33 @@ it = select();
 console.log(it.next()); // {value: "House", done: false}
 console.log(it.next()); // {value: "Garage", done: false}
 console.log(it.next()); // {value: undefined, done: true}
+
+//endregion -------------------------------------------------------------------------
+//region Generators in Action
+
+let obj = {
+    [Symbol.iterator]: gen
+};
+
+function *gen() {
+    yield 1;
+    yield 2;
+}
+
+for (let element of obj) {
+    console.log(element); // 1 2
+}
+
+// With argument
+function *gene(end) {
+    for (var i = 0; i < end; i++) {
+        yield i;    
+    }
+}
+
+it = gene(2);
+
+console.log(it.next()); // {value: 1, done: false}
+console.log(it.next()); // {value: 2, done: false}
+console.log(it.next()); // {value: undefined, done: true}
+console.log(it.next()); // {value: undefined, done: true}
