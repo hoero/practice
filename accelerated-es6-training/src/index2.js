@@ -17,9 +17,9 @@ let obj = {
 
 console.log(obj); // {name: "Max", Symbol(debug): 22}
 
+
 //endregion -------------------------------------------------------------------------
 //region Shared Symbols
-
 let sharedSymbol  = Symbol.for('age');
 let sharedSymbol2 = Symbol.for('age');
 

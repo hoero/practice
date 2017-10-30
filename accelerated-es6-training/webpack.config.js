@@ -8,8 +8,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-  entry: './src/index3.js',
-  
+  entry: './src/index4.js',
+
   output: {
     path    : path.resolve('dist'),
     filename: 'index_bundle.js'
@@ -17,7 +17,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { 
+      {
         test   : /\.js$/,
         // loader : 'babel-loader',
         exclude: /node_modules/

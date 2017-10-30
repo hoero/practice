@@ -37,7 +37,7 @@ console.log(obj['age']);    // 28
 console.log(obj[ageField]); // 28
 
 //endregion -------------------------------------------------------------------------
-//region Template literals 
+//region Template literals
 
 const fname = `Max`;
 

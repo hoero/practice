@@ -20,7 +20,7 @@ console.log(it.next()); // {value: undefined, done: true}
 array[Symbol.iterator] = function() {
 
     let nextValue = 10;
-    
+
     return {
         next() {
             nextValue++;
@@ -48,11 +48,11 @@ let person = {
         let i = 0;
 
         let hobbies = this.hobbies;
-        
+
         return {
             next() {
                 let value = hobbies[i];
-                
+
                 i++;
 
                 return {
@@ -102,7 +102,7 @@ for (let element of obj) {
 // With argument
 function *gene(end) {
     for (var i = 0; i < end; i++) {
-        yield i;    
+        yield i;
     }
 }
 
@@ -129,7 +129,7 @@ function *gener(end) {
     for (var i = 0; i < end; i++) {
         try {
 
-            yield i;  
+            yield i;
 
         } catch (error) {
 
@@ -144,10 +144,10 @@ it = gener(2);
 console.log(it.next());                      // {value: 0, done: false}
 console.log(it.throw('An error occurred'));  // An error occurred
                                              // {value: 1, done: false}
-console.log(it.next());                      // {value: undefined, done: true} 
-console.log(it.next());                      // {value: undefined, done: true} 
+console.log(it.next());                      // {value: undefined, done: true}
+console.log(it.next());                      // {value: undefined, done: true}
 
 console.log(it.next());                      // {value: 0, done: false}
 console.log(it.return('An error occurred')); // {value: "An error occurred", done: true}
-console.log(it.next());                      // {value: undefined, done: true} 
-console.log(it.next());                      // {value: undefined, done: true} 
+console.log(it.next());                      // {value: undefined, done: true}
+console.log(it.next());                      // {value: undefined, done: true}

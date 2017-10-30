@@ -18,7 +18,7 @@ class Person {
     constructor (name) {
         this._name = name;
     }
-    
+
     // Getter
     get name() {
         return this._name.toUpperCase();
@@ -33,7 +33,7 @@ class Person {
         } else {
 
             console.log('Rejected');
-            
+
         }
     }
 }
@@ -57,7 +57,7 @@ console.log(person.name); // ANNA
 class ConvertableArray extends Array {
     convert() {
         let returnArray = [];
-        
+
         this.forEach(value => returnArray.push(`Coverted! ${value}`));
 
         return returnArray;
