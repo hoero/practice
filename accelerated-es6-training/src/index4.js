@@ -35,3 +35,28 @@ function waitASecond(seconds) {
 waitASecond(0)
     .then(waitASecond)
     .then(seconds => console.log(seconds)) // 2
+
+//endregion -------------------------------------------------------------------------
+//region Catching Errors
+
+function waitASecond2(seconds) {
+    return new Promise(( resolve, reject ) => {
+        if (seconds > 2) {
+
+            reject('Rejected!');
+
+        } else {
+
+            setTimeout(() => {
+                seconds++;
+                resolve(seconds);
+            }, 1000);
+
+        }
+    });
+}
+
+waitASecond2(2)
+    .then(waitASecond2)
+    .then(seconds => console.log(seconds))
+    .catch(error  => console.log(error))   // Rejected!'
