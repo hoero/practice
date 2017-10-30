@@ -19,3 +19,19 @@ promise = new Promise(( resolve, reject ) => {
 });
 
 promise.then( value => console.log(value), error => console.log(error) );  // Failed!!!
+
+//endregion -------------------------------------------------------------------------
+//region Chaining Promises
+
+function waitASecond(seconds) {
+    return new Promise(( resolve, reject ) => {
+        setTimeout(() => {
+            seconds++;
+            resolve(seconds);
+        }, 1000);
+    });
+}
+
+waitASecond(0)
+    .then(waitASecond)
+    .then(seconds => console.log(seconds)) // 2
