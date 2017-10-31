@@ -1,5 +1,5 @@
 -- Exercise 2
--- 
+--
 -- 1. Call your new function ~= as a prefix function.
 -- 2. Display the result on the page
 

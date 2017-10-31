@@ -21,6 +21,6 @@ increment cnt amt =
         --     localCount + amt
     in
         localCount + amt
-        
+
 main =
     Html.text ( toString result )

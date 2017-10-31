@@ -1,5 +1,5 @@
 -- Exercise 3
--- 
+--
 -- 1. Using function composition, create a function named wordCount that returns the number of words in a sentence.
 -- 2. Call the wordCount function with any sentence and display the result on the page.
 

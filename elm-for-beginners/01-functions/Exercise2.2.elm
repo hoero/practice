@@ -1,5 +1,5 @@
 -- Exercise 2
--- 
+--
 -- 1. Create a new file named Exercise2.elm
 -- 2. Import the Html Module
 -- 3. Create a function that uppercases names longer than 10 characters
@@ -17,7 +17,7 @@ uppercase maxLength name =
         String.toUpper name
 
     else
-    
+
         name
 
 main =
@@ -29,7 +29,7 @@ main =
             String.length name
 
     in
-        ( uppercase 10 name ) 
+        ( uppercase 10 name )
             ++ (" - name length: ")
             ++ ( toString length )
             |> Html.text

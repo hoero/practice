@@ -1,5 +1,5 @@
 -- Exercise 2
--- 
+--
 -- 1. Create a new file named Exercise2.elm
 -- 2. Import the Html Module
 -- 3. Create a function that uppercases names longer than 10 characters
