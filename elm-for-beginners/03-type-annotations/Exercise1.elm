@@ -16,6 +16,9 @@
 -- 1. Create a type alias for the cart records in Exercise1.elm
 -- 2. Add the appropriate type annotations to all values and functions used in Exercise1.
 
+module Main exposing (..)
+
+
 import Html
 
 
