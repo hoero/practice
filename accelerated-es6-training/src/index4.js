@@ -59,4 +59,31 @@ function waitASecond2(seconds) {
 waitASecond2(2)
     .then(waitASecond2)
     .then(seconds => console.log(seconds))
-    .catch(error  => console.log(error))   // Rejected!'
+    .catch(error  => console.log(error)) // Rejected!
+
+//endregion -------------------------------------------------------------------------
+//region Built-in Methods - All and Race
+
+let promise1 = new Promise(( resolve, reject ) => {
+    setTimeout(() => resolve('Resolved!'), 1000)
+});
+
+let promise2 = new Promise(( resolve, reject ) => {
+    setTimeout(() => resolve('Resolved!!'), 2000)
+});
+
+let promise3 = new Promise(( resolve, reject ) => {
+    setTimeout(() => reject('Rejected!'), 2000)
+});
+
+Promise.all([promise1, promise2])
+    .then(success => console.log(success)) // ["Resolved!", "Resolved!!"]
+    .catch(error => console.log(error))
+
+Promise.all([promise1, promise3])
+    .then(success => console.log(success))
+    .catch(error => console.log(error))    // Rejected!
+
+Promise.race([promise1, promise3])
+    .then(success => console.log(success)) // Resolved!
+    .catch(error => console.log(error))
