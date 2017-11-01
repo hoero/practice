@@ -4,29 +4,54 @@ module Main exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import String
 
 
 -- Model
 
 type alias Model =
-    Int
+    { calories : Int
+    , input    : Int
+    , error    : Maybe String
+    }
 
 
 initModel : Model
 initModel =
-    0
+    -- Model 0 0 Nothing
+    { calories = 0
+    , input    = 0
+    , error    = Nothing
+    }
 
 
 -- Update
 
-type Msg = AddCalorie | Clear
+type Msg = AddCalorie | Input String | Clear
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         AddCalorie ->
-            model + 1
+            { model
+                | calories = model.calories + model.input
+                , input    = 0
+            }
+
+        Input val ->
+            case String.toInt val of
+                Ok input ->
+                    { model
+                        | input = input
+                        , error = Nothing
+                    }
+
+                Err err ->
+                    { model
+                        | input = 0
+                        , error = Just err
+                    }
 
         Clear ->
             initModel
@@ -37,8 +62,21 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h3 []
-            [ text ("Total Calories: " ++ (toString model)) ]
+        [ h3 [] [ text ("Total Calories: " ++ (toString model.calories)) ]
+        , input
+            [ type_ "text"
+            , placeholder "Calorie(s)"
+            , autofocus True
+            , onInput Input
+            , value
+                (if model.input == 0 then
+                    ""
+                 else
+                    toString model.input
+                )
+            ]
+            []
+        , div [] [ text (Maybe.withDefault "" model.error) ]
         , button
             [ type_ "button"
             , onClick AddCalorie
@@ -50,6 +88,7 @@ view model =
             ]
             [ text "Clear" ]
         ]
+
 
 main : Program Never Model Msg
 main =
