@@ -76,3 +76,42 @@ person = {};
 Object.setPrototypeOf(person, boss);
 
 console.log(person.name); // Anna
+
+//endregion -------------------------------------------------------------------------
+//region Math Object
+
+// sign
+let number = -10;
+console.log(Math.sign(number)); // -1
+
+number = 10;
+console.log(Math.sign(number)); // 1
+
+number = 0;
+console.log(Math.sign(number)); // 0
+
+number = NaN;
+console.log(Math.sign(number)); // NaN
+
+number = 'string';
+console.log(Math.sign(number)); // NaN
+
+number = '10';
+console.log(Math.sign(number)); // 1
+
+// trunc
+
+number = 0.78;
+console.log(Math.trunc(number)); // 0
+
+number = 3.78;
+console.log(Math.trunc(number)); // 3
+
+number = 3.78;
+console.log(Math.floor(number)); // 3
+
+number = -3.78;
+console.log(Math.floor(number)); // 4
+
+number = -3.78;
+console.log(Math.trunc(number)); // -3
