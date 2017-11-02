@@ -134,3 +134,30 @@ console.log(name.endsWith('RU'));  // false
 console.log(name.includes('Ho'));   // true
 console.log(name.includes('eru'));  // true
 console.log(name.includes('eRu'));  // false
+
+//endregion -------------------------------------------------------------------------
+//region Number Object
+
+// isNaN
+number = NaN;
+
+console.log(isNaN(number));        // true
+console.log(Number.isNaN(number)); // true
+
+// isFinite
+number = 100000000000000;
+console.log(Number.isFinite(number)); // true
+
+number = Infinity;
+console.log(Number.isFinite(number));  // false
+console.log(!Number.isFinite(number)); // true
+
+// isInteger
+number = Infinity;
+console.log(Number.isInteger(number)); // false
+
+number = 10;
+console.log(Number.isInteger(number)); // true
+
+number = 10.1;
+console.log(Number.isInteger(number)); // false
