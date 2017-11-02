@@ -8,7 +8,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-  entry: './src/index4.js',
+  entry: './src/index5.js',
 
   output: {
     path    : path.resolve('dist'),
