@@ -161,3 +161,54 @@ console.log(Number.isInteger(number)); // true
 
 number = 10.1;
 console.log(Number.isInteger(number)); // false
+
+//endregion -------------------------------------------------------------------------
+//region Arrays
+
+let array = Array(5);
+console.log(array); // [empty × 5]
+
+// of
+array = Array.of(5);
+console.log(array); // [5]
+
+array = Array.of(5, 10, 15);
+console.log(array); // [5, 10, 15]
+
+// from
+array = [5, 10, 15];
+console.log(array); // [5, 10, 15]
+
+let newArray = Array.from(array, val => val * 2);
+console.log(newArray); // [10, 20, 30]
+
+// fill
+array.fill(100);
+console.log(array); // [100, 100, 100]
+
+array = [5, 10, 15];
+array.fill(100, 1);
+console.log(array); // [5, 100, 100]
+
+array = [5, 10, 15];
+array.fill(100, 1, 2);
+console.log(array); // [5, 100, 15]
+
+// copyWithin
+console.log(array.copyWithin(1, 2));    // [5, 15, 15]
+
+array = [5, 10, 15];
+console.log(array.copyWithin(1, 0));    // [5, 5, 10]
+
+array = [5, 10, 15];
+console.log(array.copyWithin(1, 0, 2)); // [5, 5, 10]
+
+// entries
+array = [5, 10, 15];
+console.log(array.entries()); // Array Iterator {}
+
+let it = array.entries();
+
+for (let key of it) {
+    console.log(key); // [0, 5] [1, 10] [2, 15]
+}
