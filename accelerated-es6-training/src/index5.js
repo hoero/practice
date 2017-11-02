@@ -115,3 +115,22 @@ console.log(Math.floor(number)); // 4
 
 number = -3.78;
 console.log(Math.trunc(number)); // -3
+
+//endregion -------------------------------------------------------------------------
+//region Strings
+
+let name = 'Hoeru';
+
+// startsWith
+console.log(name.startsWith('Ho'));  // true
+console.log(name.startsWith('Hoo')); // false
+console.log(name.startsWith('HO'));  // false
+
+// endsWith
+console.log(name.endsWith('ru'));  // true
+console.log(name.endsWith('RU'));  // false
+
+// includes
+console.log(name.includes('Ho'));   // true
+console.log(name.includes('eru'));  // true
+console.log(name.includes('eRu'));  // false
