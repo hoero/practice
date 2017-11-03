@@ -39,3 +39,21 @@ set.delete(1);
 for (let key of set) { console.log(key); } // 2
 
 set.clear();
+
+//endregion -------------------------------------------------------------------------
+//region WeakSet
+
+set = new WeakSet([{a:1}, {b:2}, {b:2}]);
+
+console.log(set.has({b:2})); // false
+
+let obj1 = { a: 1 };
+let obj2 = { b: 2 };
+
+set = new WeakSet([obj1, obj2, obj2]);
+
+console.log(set.has(obj2)); // true
+
+set.delete(obj2);
+
+set.add(obj1);
