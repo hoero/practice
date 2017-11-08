@@ -99,12 +99,14 @@ person = new Person3('Max', 27);
 
 // console.log(Reflect.get(person, 'name')); // Max
 
-Reflect.set(person, 'name', 'Anna', mum);
+// Reflect.set(person, 'name', 'Anna', mum);
 
-console.log(mum); // {_name: "Anna"}
+// console.log(mum); // {_name: "Anna"}
 
 // console.log(Reflect.get(person, 'name')); // Anna
 
-console.log(Reflect.get(person, 'name', mum)); // Anna
+// console.log(Reflect.get(person, 'name', mum)); // Anna
 
-console.log(Reflect.has(person, 'name')); // true
+// console.log(Reflect.has(person, 'name')); // true
+
+console.log(Reflect.ownKeys(person)); // ["_name", "age"]
