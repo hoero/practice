@@ -43,7 +43,7 @@ Reflect.apply(person.greet, {}, []);               // Hello, I am undefined
 Reflect.apply(person.greet, { name: 'Anna' }, []); // Hello, I am Anna
 
 //endregion -------------------------------------------------------------------------
-//region Reflect and Prototypes
+//region Reflect and Prototypes + Interactions between *
 
 class Person2 {
     constructor() {
@@ -51,18 +51,23 @@ class Person2 {
     }
 }
 
-person = new Person();
+person = new Person2();
 
-Person.prototype.age = 27;
+Person2.prototype.age = 27;
 
 console.log(Reflect.getPrototypeOf(person)); // {age: 27, constructor: ƒ}
 
-console.log(Reflect.getPrototypeOf(person) === Person.prototype); // true
+console.log(Reflect.getPrototypeOf(person) === Person2.prototype); // true
 
 let proto = {
-    age: 30
+    age: 30,
+    greet() {
+        console.log('Hello');
+    }
 };
 
 Reflect.setPrototypeOf(person, proto);
 
-console.log(Reflect.getPrototypeOf(person)); // {age: 30}
+console.log(Reflect.getPrototypeOf(person)); // {age: 30, greet: ƒ}
+
+Reflect.apply(person.greet, null, []); // Hello
