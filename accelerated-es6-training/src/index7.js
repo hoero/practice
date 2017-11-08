@@ -112,17 +112,25 @@ person = new Person3('Max', 27);
 console.log(Reflect.ownKeys(person)); // ["_name", "age"]
 
 //endregion -------------------------------------------------------------------------
-//region Creating & Deleting Properties with Reflect
+//region Creating & Deleting Properties with Reflect + Preventing Object Extensions
+
+console.log(Reflect.isExtensible(person)); // true
+
+Reflect.preventExtensions(person);
+
+console.log(Reflect.isExtensible(person)); // false
 
 Reflect.defineProperty(person, 'hobbies', {
     writable: true,
     value   : ['Sports', 'Cooking']
 });
 
-person.hobbies = 'Nothing';
+console.log(person.hobbies); // undefined
 
-console.log(person.hobbies); // Nothing
+// person.hobbies = 'Nothing';
 
-Reflect.deleteProperty(person, 'age');
+// console.log(person.hobbies); // Nothing
 
-console.log(person.age); // undefined
+// Reflect.deleteProperty(person, 'age');
+
+// console.log(person.age); // undefined
