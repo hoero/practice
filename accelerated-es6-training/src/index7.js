@@ -110,3 +110,19 @@ person = new Person3('Max', 27);
 // console.log(Reflect.has(person, 'name')); // true
 
 console.log(Reflect.ownKeys(person)); // ["_name", "age"]
+
+//endregion -------------------------------------------------------------------------
+//region Creating & Deleting Properties with Reflect
+
+Reflect.defineProperty(person, 'hobbies', {
+    writable: true,
+    value   : ['Sports', 'Cooking']
+});
+
+person.hobbies = 'Nothing';
+
+console.log(person.hobbies); // Nothing
+
+Reflect.deleteProperty(person, 'age');
+
+console.log(person.age); // undefined
