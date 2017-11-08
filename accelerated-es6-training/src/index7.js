@@ -71,3 +71,40 @@ Reflect.setPrototypeOf(person, proto);
 console.log(Reflect.getPrototypeOf(person)); // {age: 30, greet: ƒ}
 
 Reflect.apply(person.greet, null, []); // Hello
+
+//endregion -------------------------------------------------------------------------
+//region Accessing Properties with Reflect
+
+class Person3 {
+    constructor(name, age) {
+        this._name = name;
+        // this.name = name;
+        this.age  = age;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(value) {
+        this._name = value;
+    }
+}
+
+let mum = {
+    _name: 'Mum'
+};
+
+person = new Person3('Max', 27);
+
+// console.log(Reflect.get(person, 'name')); // Max
+
+Reflect.set(person, 'name', 'Anna', mum);
+
+console.log(mum); // {_name: "Anna"}
+
+// console.log(Reflect.get(person, 'name')); // Anna
+
+console.log(Reflect.get(person, 'name', mum)); // Anna
+
+console.log(Reflect.has(person, 'name')); // true
