@@ -99,3 +99,21 @@ proxy = new Proxy(log, handler);
 
 proxy('Hello'); // Log created entry, message: Hello
 proxy('Hello', 10);
+
+//endregion -------------------------------------------------------------------------
+//region Revocable Proxies
+{
+    handler = {
+        get(target, property) {
+            return Reflect.get(...arguments);
+        }
+    };
+
+    let {proxy, revoke} = Proxy.revocable(person, handler);
+
+    console.log(proxy.name); // Max
+
+    revoke();
+
+    console.log(proxy.name); // Uncaught TypeError: Cannot perform 'get' on a proxy that has been revoked
+}
