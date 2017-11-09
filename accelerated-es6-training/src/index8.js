@@ -60,3 +60,22 @@ Reflect.setPrototypeOf(person, proxy);
 
 console.log(person.name);    // Max
 console.log(person.hobbies); // Non existent
+
+//endregion -------------------------------------------------------------------------
+//region Proxies as Proxies
+
+handler = {};
+
+protoHandler = {
+    get(target, name) {
+        return name in target ? target[name] : 'Non existent';
+    }
+};
+
+proxy = new Proxy({}, handler);
+
+protoProxy = new Proxy(proxy, protoHandler);
+
+Reflect.setPrototypeOf(person, protoProxy);
+
+console.log(person.hobbies); // Non existent
