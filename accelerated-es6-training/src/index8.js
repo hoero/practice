@@ -79,3 +79,23 @@ protoProxy = new Proxy(proxy, protoHandler);
 Reflect.setPrototypeOf(person, protoProxy);
 
 console.log(person.hobbies); // Non existent
+
+//endregion -------------------------------------------------------------------------
+//region Wrapping Functions
+
+function log(message) {
+    console.log(`Log created entry, message: ${message}`);
+}
+
+handler = {
+    apply(target, thisArg, argumentsList) {
+        if (argumentsList.length === 1) {
+            return Reflect.apply(...arguments);
+        }
+    }
+};
+
+proxy = new Proxy(log, handler);
+
+proxy('Hello'); // Log created entry, message: Hello
+proxy('Hello', 10);
