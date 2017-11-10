@@ -20,6 +20,8 @@ export class Http {
                 }
             }
 
+            HTTP.send();
+
         });
     }
 }
