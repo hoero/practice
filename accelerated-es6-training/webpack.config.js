@@ -8,7 +8,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 
 module.exports = {
-  entry: './src/index8.js',
+  entry: './src/app.js',
 
   output: {
     path    : path.resolve('dist'),
@@ -19,8 +19,12 @@ module.exports = {
     loaders: [
       {
         test   : /\.js$/,
-        // loader : 'babel-loader',
+        // use : 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test : /\.css$/,
+        use  : ['style-loader', 'css-loader']
       }
     ]
   },
