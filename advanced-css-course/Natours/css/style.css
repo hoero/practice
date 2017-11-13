@@ -48,12 +48,13 @@ body {
 .logo { height: 35px; }
 
 .text-box {
-    position  : absolute;
-    top       : 40%;
-    left      : 50%;
-    transform : translate(-50%, -50%);
-
-    text-align: center;
+    position      : absolute;
+    top           : 40%;
+    left          : 50%;
+    display       : flex;
+    align-items   : center;
+    flex-direction: column;
+    transform     : translate(-50%, -50%);
 }
 
 .heading-primary {
@@ -120,9 +121,22 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 .btn:link,
 .btn:visited {
     padding        : 15px 40px;
+    position       : relative;
     display        : inline-block;
     border-radius  : 100px;
 
@@ -145,4 +159,30 @@ body {
 .btn-white {
     color           : #777777;
     background-color: white;
+}
+
+.btn::after {
+    width        : 100%;
+    height       : 100%;
+    position     : absolute;
+    top          : 0;
+    left         : 0;
+    display      : inline-block;
+    z-index      : -1;
+    border-radius: 100px;
+    content      : '';
+
+    transition   : all .4s;
+}
+
+.btn-white::after { background-color: white; }
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation          : moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
 }
