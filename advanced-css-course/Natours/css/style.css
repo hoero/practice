@@ -45,19 +45,22 @@ body {
     left    : 40px;
 }
 
-.logo {
-    height: 35px;
-}
+.logo { height: 35px; }
 
 .text-box {
-    position : absolute;
-    top      : 40%;
-    left     : 50%;
-    transform: translate(-50%, -50%);
+    position  : absolute;
+    top       : 40%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+
+    text-align: center;
 }
 
 .heading-primary {
+    margin             : 0 0 60px;
+
     color              : white;
+
     text-transform     : uppercase;
 
     backface-visibility: hidden;
@@ -115,4 +118,31 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+.btn:link,
+.btn:visited {
+    padding        : 15px 40px;
+    display        : inline-block;
+    border-radius  : 100px;
+
+    text-transform : uppercase;
+    text-decoration: none;
+
+    transition     : all .2s;
+}
+
+.btn:hover {
+    transform : translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform : translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    color           : #777777;
+    background-color: white;
 }
