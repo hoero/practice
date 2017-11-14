@@ -32,31 +32,31 @@ body {
 }
 
 .header {
-    position        : relative;
-    height          : 95vh;
+    position           : relative;
+    height             : 95vh;
+    clip-path          : polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-    background-image: linear-gradient(
+    background-image   : linear-gradient(
         to right bottom,
         rgba(126, 213, 111, 0.8),
         rgba(40, 180, 131, 0.8)
         ),
-        url(../img/hero.jpg);
+                         url(../img/hero.jpg);
     background-size    : cover;
     background-position: top;
-    clip-path          : polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top     : 4rem;
     left    : 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position      : absolute;
     top           : 40%;
     left          : 50%;
@@ -76,7 +76,7 @@ body {
     backface-visibility: hidden;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display                  : block;
 
     font-size                : 6rem;
@@ -88,7 +88,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display       : block;
 
     font-size     : 2rem;
@@ -165,7 +165,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn.white {
     color           : #777777;
     background-color: white;
 }
@@ -184,7 +184,7 @@ body {
     transition   : all .4s;
 }
 
-.btn-white::after {
+.btn.white::after {
     background-color: white;
 }
 
@@ -193,7 +193,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn.animated {
     animation          : moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
 }
