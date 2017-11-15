@@ -3,9 +3,15 @@
         text-align: center;
     }
 
-    @for $i from 1 through 10 {
-        &margin-bottom-#{$i} {
-            margin-bottom: #{$i}rem;
-        }
+    // @for $i from 1 through 10 {
+    //     &margin-bottom-#{$i} {
+    //         margin-bottom: #{$i}rem;
+    //     }
+    // }
+
+    &margin-bottom- {
+        &small  { margin-bottom: 1.5rem; }
+        &medium { margin-bottom: 4rem; }
+        &big    { margin-bottom: 8rem; }
     }
 }
