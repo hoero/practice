@@ -1,4 +1,4 @@
 // Calculate dimension(s)
-@function calc-2d($i, $j, $var) {
-    @return calc( #{$i}/#{$j} * (100% - (#{$j} - 1) * #{$var}) + #{$i - 1} * #{$var} );
+@function calc-2d($i, $j, $gutter) {
+    @return calc( #{$i}/#{$j} * (100% - (#{$j} - 1) * #{$gutter}) + #{$i - 1} * #{$gutter} );
 }

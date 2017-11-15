@@ -5,3 +5,7 @@
         clear  : both;
     }
 }
+
+@mixin transition($seconds, $property: all) {
+    transition: $property $seconds;
+}

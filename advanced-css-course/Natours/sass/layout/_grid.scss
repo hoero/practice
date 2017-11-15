@@ -9,8 +9,6 @@
 
     [class^='col-'] {
         float: left;
-        color: white;
-        background-color: orangered;
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
@@ -20,7 +18,7 @@
     @for $i from 1 through 6 {
         @for $j from 1 through 6 {
             .col-#{$i}-of-#{$j} {
-                width: calc-2d($i, $j, $gutter-horizontal)
+                width: calc-2d($i, $j, $gutter-horizontal);
             }
         }
     }
