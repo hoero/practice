@@ -9,3 +9,21 @@
 @mixin transition($seconds, $property: all) {
     transition: $property $seconds;
 }
+
+@mixin gradient-img($img, $bg-position: initial, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: '../img/', $format: '.jpg') {
+    background-image: linear-gradient(
+        $position,
+        rgba($color1, 0.8),
+        rgba($color2, 0.8)
+        ),
+                      url($url + $img + $format);
+    background-size : cover;
+    background-position: $bg-position;
+}
+
+@mixin gradient-text($direction: to right, $color1: $color-primary-light, $color2: $color-primary-dark) {
+    display                : inline-block;
+    color                  : transparent;
+    background-image       : linear-gradient($direction, $color1, $color2);
+    -webkit-background-clip: text;
+}

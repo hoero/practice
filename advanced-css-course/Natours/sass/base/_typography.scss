@@ -41,34 +41,21 @@ body {
         color              : $white;
         backface-visibility: hidden;
 
-        &.main {
-            @extend %primary-main;
-        }
+        &.main { @extend %primary-main; }
 
-        &.sub {
-            @extend %primary-sub;
-        }
+        &.sub { @extend %primary-sub; }
     }
 
-    .main {
-        @extend %primary-main;
-    }
+    .main { @extend %primary-main; }
 
-    .sub {
-        @extend %primary-sub;
-    }
+    .sub { @extend %primary-sub; }
 
     &.secondary {
-        display                : inline-block;
-
         font-size              : 3.5rem;
         font-weight            : 700;
         letter-spacing         : .2rem;
 
-        color                  : transparent;
-        background-image       : linear-gradient(to right, $color-primary-light, $color-primary-dark);
-        -webkit-background-clip: text;
-
+        @include gradient-text;
         @include transition(.2s);
 
         &:hover {
