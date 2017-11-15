@@ -30,7 +30,7 @@ body {
     font-size  : $default-font-size;
     line-height: 1.7;
 
-    color      : $color-grey-dark;
+    color      : $grey-dark;
 }
 
 .heading {
@@ -38,7 +38,7 @@ body {
 
     &.primary {
         margin             : 0 0 6rem;
-        color              : $color-white;
+        color              : $white;
         backface-visibility: hidden;
 
         &.main {
@@ -73,7 +73,7 @@ body {
 
         &:hover {
             transform  : skewX(15deg) skewY(2deg) scale(1.1);
-            text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+            text-shadow: .5rem 1rem 2rem rgba($black, .2);
         }
     }
 
