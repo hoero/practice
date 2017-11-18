@@ -40,13 +40,13 @@
         }
     }
 
-    // &:hover &__side.front {
-    //     transform: rotateY(-180deg);
-    // }
+    &:hover &__side.front {
+        transform: rotateY(-180deg);
+    }
 
-    // &:hover &__side.back {
-    //     transform: rotateY(0);
-    // }
+    &:hover &__side.back {
+        transform: rotateY(0);
+    }
 
     // FRONT SIDE
     &__picture {
@@ -58,6 +58,14 @@
 
         &.first {
             @include gradient-img-only('nat-5', $color1: $color-secondary-light, $color2: $color-secondary-dark);
+        }
+
+        &.second {
+            @include gradient-img-only('nat-6', $color1: $color-primary-light, $color2: $color-primary-dark);
+        }
+
+        &.third {
+            @include gradient-img-only('nat-7', $color1: $color-tertiary-light, $color2: $color-tertiary-dark);
         }
     }
 
@@ -87,6 +95,20 @@
                 rgba($color-secondary-light, .85),
                 rgba($color-secondary-dark, .85));
         }
+
+        &.second {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-primary-light, .85),
+                rgba($color-primary-dark, .85));
+        }
+
+        &.third {
+            background-image: linear-gradient(
+                to right bottom,
+                rgba($color-tertiary-light, .85),
+                rgba($color-tertiary-dark, .85));
+        }
     }
 
     &__details {
@@ -107,5 +129,30 @@
                 }
             }
         }
+    }
+
+    // BACK SIDE
+    &__cta {
+        width     : 100%;
+        position  : absolute;
+        top       : 50%;
+        left      : 50%;
+        transform : translate(-50%, -50%);
+        text-align: center;
+    }
+
+    &__price-box {
+        margin-bottom: 8rem;
+        color        : $white;
+    }
+
+    &__price-only {
+        font-size     : 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size  : 6rem;
+        font-weight: 100;
     }
 }
