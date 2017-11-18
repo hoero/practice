@@ -9,10 +9,20 @@ $default-font-size: 1.6rem;
 
 
 // COLORS
-$color-primary      : #55c57a;
-$color-primary-light: #7ed56f;
-$color-primary-dark : #28b485;
-$grey-light-1       : #f7f7f7;
-$grey-dark          : #777777;
-$white              : white;
-$black              : black;
+$color-primary        : #55c57a;
+$color-primary-light  : #7ed56f;
+$color-primary-dark   : #28b485;
+$color-secondary-light: #ffb900;
+$color-secondary-dark : #ff7730;
+$color-tertiary-light : #2998ff;
+$color-tertiary-dark  : #5643fa;
+$grey-light-1         : #f7f7f7;
+$grey-light-2         : #eeeeee;
+$grey-dark            : #777777;
+$white                : white;
+$black                : black;
+
+
+// MEDIA
+$media-url     : '../img/';
+$default-format: '.jpg';

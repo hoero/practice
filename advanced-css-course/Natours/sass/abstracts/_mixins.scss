@@ -6,19 +6,29 @@
     }
 }
 
-@mixin transition($seconds, $property: all) {
-    transition: $property $seconds;
+@mixin transition($seconds, $easing: ease, $property: all) {
+    transition: $property $seconds $easing;
 }
 
-@mixin gradient-img($img, $bg-position: initial, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: '../img/', $format: '.jpg') {
+@mixin gradient-img($img, $bg-position: initial, $bg-size: cover, $repeat: no-repeat, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: $media-url, $format: $default-format) {
+    background-image   : linear-gradient(
+        $position,
+        rgba($color1, 0.8),
+        rgba($color2, 0.8)
+        ),
+                         url($url + $img + $format);
+    background-repeat  : $repeat;
+    background-size    : $bg-size;
+    background-position: $bg-position;
+}
+
+@mixin gradient-img-only($img, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: $media-url, $format: $default-format) {
     background-image: linear-gradient(
         $position,
         rgba($color1, 0.8),
         rgba($color2, 0.8)
         ),
-                      url($url + $img + $format);
-    background-size : cover;
-    background-position: $bg-position;
+                         url($url + $img + $format);
 }
 
 @mixin gradient-text($direction: to right, $color1: $color-primary-light, $color2: $color-primary-dark) {
