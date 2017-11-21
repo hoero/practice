@@ -467,10 +467,37 @@ body {
 
 .story__img {
   height: 100%;
+  transform: translateX(-4rem) scale(1.4);
+  backface-visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.story:hover .story__img {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(0.3rem) brightness(80%);
 }
 
 .story__text {
   transform: skewX(12deg);
+}
+
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, 20%);
+  backface-visibility: hidden;
+  color: white;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .row {
