@@ -1,8 +1,9 @@
 .section {
+    background-color: $grey-light-1;
+
     &.about {
         margin-top: -20vh;
         padding: 25rem 0;
-        background-color: $grey-light-1 ;
     }
 
     &.features {
@@ -20,6 +21,9 @@
     &.tours {
         margin-top      : -10rem;
         padding         : 25rem 0 15rem;
-        background-color: $grey-light-1;
+    }
+
+    &.stories {
+        padding: 15rem 0;
     }
 }
