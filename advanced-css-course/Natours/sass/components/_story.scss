@@ -3,7 +3,7 @@
     padding         : 6rem 6rem 6rem 9rem;
     width           : 75%;
     background-color: rgba($white, .6);
-    border-radius   : .3rem;
+    border-radius   : $radius;
     box-shadow      : 0 .3rem 6rem rgba($black, .1);
     transform       : skewX(-12deg);
     overflow: hidden;

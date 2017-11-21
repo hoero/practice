@@ -2,3 +2,10 @@
 @function calc-2d($i, $j, $gutter) {
     @return calc( #{$i}/#{$j} * (100% - (#{$j} - 1) * #{$gutter}) + #{$i - 1} * #{$gutter} );
 }
+
+
+@function gradient($type, $direction, $colors...) {
+    @each $color in $colors {
+        @return $type + '( ' + $direction, #{$color} unquote(')');
+    }
+}

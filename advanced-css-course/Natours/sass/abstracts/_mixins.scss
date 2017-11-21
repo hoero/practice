@@ -6,34 +6,50 @@
     }
 }
 
-@mixin transition($seconds, $easing: ease, $property: all) {
+
+@mixin transition($seconds, $property: all, $easing: ease) {
     transition: $property $seconds $easing;
 }
 
-@mixin gradient-img($img, $bg-position: initial, $bg-size: cover, $repeat: no-repeat, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: $media-url, $format: $default-format) {
-    background-image   : linear-gradient(
-        $position,
-        rgba($color1, 0.8),
-        rgba($color2, 0.8)
-        ),
-                         url($url + $img + $format);
-    background-repeat  : $repeat;
-    background-size    : $bg-size;
-    background-position: $bg-position;
+
+@mixin bg-img($img, $url: $media-url, $format: $default-format) {
+    background-image: url($url + $img + $format);
 }
 
-@mixin gradient-img-only($img, $position: to right bottom, $color1: $color-primary-light, $color2: $color-primary-dark, $url: $media-url, $format: $default-format) {
-    background-image: linear-gradient(
-        $position,
-        rgba($color1, 0.8),
-        rgba($color2, 0.8)
-        ),
-                         url($url + $img + $format);
+
+@mixin gradient-img(
+    $img,
+    $bg-position: initial,
+    $bg-size    : cover,
+    $repeat     : no-repeat,
+    $direction  : to right bottom,
+    $colors     : (rgba($color-primary-light, .9), rgba($color-primary-dark, .9)),
+    $url        : $media-url,
+    $format     : $default-format) {
+        background-image   : gradient(linear-gradient, $direction, $colors),
+                             url($url + $img + $format);
+        background-repeat  : $repeat;
+        background-size    : $bg-size;
+        background-position: $bg-position;
 }
 
-@mixin gradient-text($direction: to right, $color1: $color-primary-light, $color2: $color-primary-dark) {
-    display                : inline-block;
-    color                  : transparent;
-    background-image       : linear-gradient($direction, $color1, $color2);
-    -webkit-background-clip: text;
+
+@mixin gradient-img-only(
+    $img,
+    $direction: to right bottom,
+    $colors   : (rgba($white, .9) 0%, rgba($white, .9) 50%, transparent 50%),
+    $url      : $media-url,
+    $format   : $default-format) {
+        background-image: gradient(linear-gradient, $direction, $colors),
+                          url($url + $img + $format);
+}
+
+
+@mixin gradient-text(
+    $direction: to right,
+    $colors   : ($color-primary-light, $color-primary-dark)) {
+        display                : inline-block;
+        color                  : transparent;
+        background-image       : gradient(linear-gradient, $direction, $colors);
+        -webkit-background-clip: text;
 }
