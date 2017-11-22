@@ -25,6 +25,8 @@
         font-size       : 1.5rem;
         color           : inherit;
 
+        @include transition(.3s);
+
         &:focus {
             outline            : none;
             border-bottom-color: $color-primary;
@@ -44,5 +46,49 @@
             visibility: hidden;
             transform : translateY(-4rem);
         }
+    }
+
+    &__radio-group {
+        display: inline-block;
+        width  : 49%;
+    }
+
+    &__radio-input {
+        display: none;
+    }
+
+    &__radio-label {
+        position    : relative;
+        padding-left: 4.5rem;
+        cursor      : pointer;
+    }
+
+    &__radio-button {
+        width        : 3rem;
+        height       : 3rem;
+        position     : absolute;
+        left         : 0;
+        border       : .5rem solid $color-primary;
+        border-radius: 100%;
+
+        &::after {
+            content         : '';
+            display         : block;
+            width           : 1.3rem;
+            height          : 1.3rem;
+            position        : absolute;
+            top             : 50%;
+            left            : 50%;
+            transform       : translate(-50%, -50%);
+            background-color: $color-primary;
+            border-radius   : 100%;
+            opacity         : 0;
+
+            @include transition(.2s, opacity);
+        }
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-button::after {
+        opacity: 1;
     }
 }

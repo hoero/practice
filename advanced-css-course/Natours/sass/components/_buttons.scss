@@ -1,8 +1,11 @@
 .btn {
+    &,
     &:link,
     &:visited {
         position       : relative;
         display        : inline-block;
+        border         : none;
+        cursor         : pointer;
 
         text-transform : uppercase;
         text-decoration: none;
@@ -11,6 +14,7 @@
     }
 
     &.round {
+        &,
         &:link,
         &:visited {
             padding      : 1.5rem 4rem;
@@ -23,11 +27,12 @@
 
             &::after {
                 transform: scaleX(1.4) scaleY(1.6);
-                opacity: 0;
+                opacity  : 0;
             }
         }
 
-        &:active {
+        &:active, &:focus {
+            outline   : none;
             transform : translateY(-.1rem);
             box-shadow: 0 .5rem 1rem rgba($black, .2);
         }
@@ -59,14 +64,15 @@
 
         &:hover {
             background-color: $color-primary;
-            color: $white;
-            box-shadow: 0 1rem 2rem rgba($black, .15);
-            transform: translateY(-.2rem);
+            color           : $white;
+            box-shadow      : 0 1rem 2rem rgba($black, .15);
+            transform       : translateY(-.2rem);
         }
 
-        &:active {
+        &:active, &:focus {
+            outline   : none;
             box-shadow: 0 .5rem 1rem rgba($black, .15);
-            transform: translateY(0);
+            transform : translateY(0);
         }
     }
 
