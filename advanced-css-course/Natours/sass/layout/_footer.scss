@@ -1,0 +1,26 @@
+.footer {
+    padding         : 10rem 0;
+    font-size       : 1.4rem;
+    background-color: $grey-dark-3;
+
+    &__logo-box {
+        margin-bottom: 8rem;
+        text-align   : center;
+    }
+
+    &__logo {
+        width : 15rem;
+        height: auto;
+    }
+
+    &__copyright {
+        width: 83%;
+        float: right;
+    }
+
+    &__copyright, .nav {
+        display    : inline-block;
+        padding-top: 2rem;
+        border-top : 1px solid $grey-dark;
+    }
+}
