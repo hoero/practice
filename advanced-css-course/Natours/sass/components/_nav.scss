@@ -39,6 +39,7 @@
         border-radius   : 100%;
         box-shadow      : 0 1rem 3rem rgba($black, .1);
         z-index         : 2000;
+        cursor          : pointer;
     }
 
     &__bg {
@@ -134,5 +135,59 @@
             transform : rotate(5deg) scale(1.3);
             color     : $color-primary;
         }
+    }
+
+
+    // ICON
+    &__icon {
+        @include center-box;
+
+        &,
+        &::before,
+        &::after {
+            display         : inline-block;
+            width           : 3rem;
+            height          : .2rem;
+            background-color: $grey-dark-3;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            left    : 0;
+            content : '';
+
+            @include transition(.2s);
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__btn:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__btn:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__btn &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__btn &__icon::before {
+        top      : 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__btn &__icon::after {
+        top      : 0;
+        transform: rotate(-135deg);
     }
 }
