@@ -16,12 +16,10 @@
     }
 
     &__text-box {
-        position      : absolute;
-        top           : 40%;
-        left          : 50%;
         display       : flex;
         align-items   : center;
         flex-direction: column;
-        transform     : translate(-50%, -50%);
+
+        @include center-box(40%, 50%);
     }
 }

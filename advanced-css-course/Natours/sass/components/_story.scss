@@ -39,11 +39,7 @@
     }
 
     &__caption {
-        position           : absolute;
-        top                : 50%;
-        left               : 50%;
         opacity            : 0;
-        transform          : translate(-50%, 20%);
         backface-visibility: hidden;
 
         color              : $white;
@@ -51,6 +47,7 @@
         text-transform     : uppercase;
         text-align         : center;
 
+        @include center-box(50%, 50%, -50%, 20%);
         @include transition(.5s);
     }
 

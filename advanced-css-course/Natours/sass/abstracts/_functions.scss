@@ -4,8 +4,14 @@
 }
 
 
-@function gradient($type, $direction, $colors...) {
+@function ladient($direction, $colors...) {
     @each $color in $colors {
-        @return $type + '( ' + $direction, #{$color} unquote(')');
+        @return linear-gradient + '( ' + $direction, #{$color} unquote(')');
+    }
+}
+
+@function radient($colors...) {
+    @each $color in $colors {
+        @return radial-gradient + '( '#{$color} unquote(')');
     }
 }

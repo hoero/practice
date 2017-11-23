@@ -7,6 +7,14 @@
 }
 
 
+@mixin center-box($pos-y: 50%, $pos-x: $pos-y, $x: -50%, $y: $x) {
+    position : absolute;
+    top      : $pos-y;
+    left     : $pos-x;
+    transform: translate($x, $y);
+}
+
+
 @mixin transition($seconds, $property: all, $easing: ease) {
     transition: $property $seconds $easing;
 }
@@ -26,7 +34,7 @@
     $colors     : (rgba($color-primary-light, .9), rgba($color-primary-dark, .9)),
     $url        : $media-url,
     $format     : $default-format) {
-        background-image   : gradient(linear-gradient, $direction, $colors),
+        background-image   : ladient($direction, $colors),
                              url($url + $img + $format);
         background-repeat  : $repeat;
         background-size    : $bg-size;
@@ -40,7 +48,7 @@
     $colors   : (rgba($white, .9) 0%, rgba($white, .9) 50%, transparent 50%),
     $url      : $media-url,
     $format   : $default-format) {
-        background-image: gradient(linear-gradient, $direction, $colors),
+        background-image: ladient($direction, $colors),
                           url($url + $img + $format);
 }
 
@@ -50,6 +58,6 @@
     $colors   : ($color-primary-light, $color-primary-dark)) {
         display                : inline-block;
         color                  : transparent;
-        background-image       : gradient(linear-gradient, $direction, $colors);
+        background-image       : ladient($direction, $colors);
         -webkit-background-clip: text;
 }

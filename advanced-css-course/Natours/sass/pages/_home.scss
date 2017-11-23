@@ -30,7 +30,7 @@
     }
 
     &.book {
-        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        background-image: ladient(to right bottom, ($color-primary-light, $color-primary-dark));
     }
 }
 
