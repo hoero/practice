@@ -9,6 +9,11 @@
     animation-name           : moveInLeft;
     animation-duration       : 1s;
     animation-timing-function: ease-out;
+
+    @include respond(phone) {
+        font-size     : 5rem;
+        letter-spacing: 1rem;
+    }
 }
 
 %primary-sub {
@@ -19,12 +24,14 @@
     letter-spacing: 1.75rem;
 
     animation     : moveInRight 1s ease-out;
+
+    @include respond(phone) {
+        letter-spacing: .5rem;
+    }
 }
 
 
 body {
-    padding    : 3rem;
-
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-size  : $default-font-size;
@@ -40,6 +47,10 @@ body {
         margin             : 0 0 6rem;
         color              : $white;
         backface-visibility: hidden;
+
+        @include respond(phone) {
+            text-align: center;
+        }
 
         &.main { @extend %primary-main; }
 
@@ -57,6 +68,14 @@ body {
 
         @include gradient-text;
         @include transition(.2s);
+
+        @include respond(tablort) {
+            font-size: 3rem;
+        }
+
+        @include respond(phone) {
+            font-size: 2.5rem;
+        }
 
         &:hover {
             transform  : skewX(15deg) skewY(2deg) scale(1.1);

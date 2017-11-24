@@ -1,9 +1,20 @@
 .header {
-    position : relative;
-    height   : 95vh;
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position         : relative;
+    height           : 95vh;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path        : polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     @include gradient-img('hero', top);
+
+    @include respond(tablort) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+        clip-path        : polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    }
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+        clip-path        : polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
 
     &__logo-box {
         position: absolute;

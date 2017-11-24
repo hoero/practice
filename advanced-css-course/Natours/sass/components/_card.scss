@@ -92,22 +92,22 @@
         &.first {
             background-image: ladient(
                 to right bottom,
-                rgba($color-secondary-light, .85),
-                rgba($color-secondary-dark, .85));
+                (rgba($color-secondary-light, .85),
+                rgba($color-secondary-dark, .85)));
         }
 
         &.second {
             background-image: ladient(
                 to right bottom,
-                rgba($color-primary-light, .85),
-                rgba($color-primary-dark, .85));
+                (rgba($color-primary-light, .85),
+                rgba($color-primary-dark, .85)));
         }
 
         &.third {
             background-image: ladient(
                 to right bottom,
-                rgba($color-tertiary-light, .85),
-                rgba($color-tertiary-dark, .85));
+                (rgba($color-tertiary-light, .85),
+                rgba($color-tertiary-dark, .85)));
         }
     }
 

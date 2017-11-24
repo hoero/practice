@@ -5,6 +5,15 @@
 
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+
+        @include respond(tablort) {
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    @include respond(tablort) {
+        padding  : 0 3rem;
+        max-width: $grid-width-small;
     }
 
     [class^='col-'] {
@@ -12,6 +21,15 @@
 
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+
+            @include respond(tablort) {
+                margin-right : 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tablort) {
+            width: 100% !important;
         }
     }
 
