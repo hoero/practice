@@ -61,3 +61,42 @@
         background-image       : ladient($direction, $colors);
         -webkit-background-clip: text;
 }
+
+
+/*
+MEDIA QUERY MANAGER
+
+0      - 600px  : Phone
+600    - 900px  : Tablet portrait mode
+900    - 1200px : Tablet landscape mode
+[1200  - 1800px]: Is where our normal styles apply (Desktop)
+1800px ->       : Big Desktop
+
+$breakpoint argument choices:
+- phone
+- tablort
+- tabland
+- bigesk
+
+ORDER: Base + Typography -> Layout + Grid -> Pages + Components
+
+1em = 16px (default browser font-size)
+*/
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content };  // 600/16  = 37.5  == 600px
+    }
+
+    @if $breakpoint == tablort {
+        @media (max-width: 56.25em) { @content }; // 900/16  = 56.25 == 900px
+    }
+
+    @if $breakpoint == tabland {
+        @media (max-width: 75em) { @content };    // 1200/16 = 75    == 1200px
+    }
+
+    @if $breakpoint == bigesk {
+        @media (min-width: 112.5em) { @content }; // 1800/16 = 112.5 == 1800px
+    }
+}
