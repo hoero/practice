@@ -65,13 +65,13 @@
     }
 
     &.primary {
-        width   : 0;
-        height  : 100vh;
-        position: fixed;
-        top     : 0;
-        left    : 0;
-        opacity : 0;
-        z-index : 1500;
+        height    : 100vh;
+        position  : fixed;
+        top       : 0;
+        left      : 0;
+        opacity   : 0;
+        visibility: hidden;
+        z-index   : 1500;
 
         @include transition(.8s, all, cubic-bezier(0.68, -0.55, 0.265, 1.55));
     }
@@ -117,8 +117,9 @@
     }
 
     &__checkbox:checked ~ &.primary {
-        width  : 100%;
-        opacity: 1;
+        width     : 100%;
+        visibility: visible;
+        opacity   : 1;
     }
 
     &.tertiary &__link {

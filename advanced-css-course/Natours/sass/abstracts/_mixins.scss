@@ -7,16 +7,16 @@
 }
 
 
-@mixin center-box($pos-y: 50%, $pos-x: $pos-y, $x: -50%, $y: $x) {
+@mixin center-box($pos-y: 50%, $pos-x: $pos-y, $x: -50%, $y: $x, $new-value: null) {
     position : absolute;
     top      : $pos-y;
     left     : $pos-x;
-    transform: translate($x, $y);
+    transform: translate($x, $y) $new-value;
 }
 
 
-@mixin transition($seconds, $property: all, $easing: ease) {
-    transition: $property $seconds $easing;
+@mixin transition($seconds, $property: all, $easing: null, $delay: null) {
+    transition: $property $seconds $easing $delay;
 }
 
 

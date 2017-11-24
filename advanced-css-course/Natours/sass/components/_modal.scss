@@ -1,12 +1,25 @@
 .popup {
-    width   : 100vw;
-    height  : 100vh;
-    position: fixed;
-    top     : 0;
-    left    : 0;
-    z-index : 3000;
+    width     : 100vw;
+    height    : 100vh;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    opacity   : 0;
+    visibility: hidden;
+    z-index   : 3000;
 
-    &.active {
+    @include transition(.3s);
+
+    // OPEN STATES
+    &:target {
+        opacity   : 1;
+        visibility: visible;
+    }
+
+    &:target .modal,
+    &:target .dialog {
+        opacity  : 1;
+        transform: translate(-50%, -50%) scale(1);
     }
 
     // OVERLAY
@@ -26,8 +39,31 @@
         background-color: $white;
         border-radius   : .3rem;
         box-shadow      : 0 2rem 4rem rgba($black, .2);
+        opacity         : 0;
 
-        @include center-box;
+        @include center-box($new-value: scale(.25));
+        @include transition(.5s, $delay: .2s);
+
+        &__close {
+            &:link,
+            &:visited {
+                display        : inline-block;
+                position       : absolute;
+                top            : 2.5rem;
+                right          : 2.5rem;
+                color          : $grey-dark;
+                font-size      : 3rem;
+                line-height    : 1;
+                text-decoration: none;
+
+                @include transition(.2s);
+            }
+
+            &:hover,
+            &:focus {
+                color: $color-primary;
+            }
+        }
 
         &__left {
             display: table-cell;
