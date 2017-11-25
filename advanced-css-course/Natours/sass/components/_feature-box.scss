@@ -13,11 +13,19 @@
         transform: translateY(-1.5rem) scale(1.03);
     }
 
+    @include respond(tablort) {
+        padding: 2rem;
+    }
+
     &__icon {
         margin-bottom: .5rem;
         padding      : .1rem;
         font-size    : 6rem;
 
         @include gradient-text;
+
+        @include respond(tablort) {
+            margin-bottom: 0;
+        }
     }
 }
