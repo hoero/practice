@@ -53,16 +53,31 @@
 // Test BEA/BEMA: Remove __container and put it directly in class
 .book {
     &__container {
-        min-height     : 50rem;
         background-size: cover;
         border-radius  : $radius;
         box-shadow     : 0 1.5rem 4rem rgba($black, .2);
 
         @include gradient-img-only('nat-10', 105deg);
+
+        @include respond(tabland) {
+            @include gradient-img-only('nat-10', 105deg, (rgba($white, .9) 0%, rgba($white, .9) 65%, transparent 65%));
+        }
+
+        @include respond(tablort) {
+            @include gradient-img-only('nat-10', to right, (rgba($white, .9), rgba($white, .9)));
+        }
     }
 
     &__form {
         padding: 6rem;
-        width: 50%;
+        width  : 50%;
+
+        @include respond(tabland) {
+            width: 65%;
+        }
+
+        @include respond(tablort) {
+            width: 100%;
+        }
     }
 }

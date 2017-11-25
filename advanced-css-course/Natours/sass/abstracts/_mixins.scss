@@ -7,11 +7,27 @@
 }
 
 
-@mixin center-box($pos-y: 50%, $pos-x: $pos-y, $x: -50%, $y: $x, $new-value: null) {
-    position : absolute;
-    top      : $pos-y;
-    left     : $pos-x;
-    transform: translate($x, $y) $new-value;
+@mixin center-box(
+    $pos-y    : 50%,
+    $pos-x    : $pos-y,
+    $x        : -50%,
+    $y        : $x,
+    $position : absolute,
+    $new-value: null,
+    $centered : yes) {
+        @if $centered == yes {
+            position : $position;
+            top      : $pos-y;
+            left     : $pos-x;
+            transform: translate($x, $y) $new-value;
+        }
+
+        @if $centered == no {
+            position : relative;
+            top      : 0;
+            left     : 0;
+            transform: translate(0, 0) $new-value;
+        }
 }
 
 
