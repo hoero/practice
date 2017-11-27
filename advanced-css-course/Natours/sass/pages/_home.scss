@@ -20,7 +20,7 @@
         transform : skewY(-7deg);
         padding   : 20rem 0;
 
-        @include gradient-img('nat-4');
+        @include gradient-img('nat-4-large');
 
         @include respond(tablort) {
             padding: 10rem 0;
@@ -57,14 +57,14 @@
         border-radius  : $radius;
         box-shadow     : 0 1.5rem 4rem rgba($black, .2);
 
-        @include gradient-img-only('nat-10', 105deg);
+        @include gradient-img-only('nat-10-large', 105deg);
 
         @include respond(tabland) {
-            @include gradient-img-only('nat-10', 105deg, (rgba($white, .9) 0%, rgba($white, .9) 65%, transparent 65%));
+            @include gradient-img-only('nat-10-large', 105deg, (rgba($white, .9) 0%, rgba($white, .9) 65%, transparent 65%));
         }
 
         @include respond(tablort) {
-            @include gradient-img-only('nat-10', to right, (rgba($white, .9), rgba($white, .9)));
+            @include gradient-img-only('nat-10-large', to right, (rgba($white, .9), rgba($white, .9)));
         }
     }
 

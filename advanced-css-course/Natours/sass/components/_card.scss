@@ -57,14 +57,26 @@
 
         &.first {
             @include gradient-img-only('nat-5', $colors: ($color-secondary-light, $color-secondary-dark));
+
+            @include respond(2x) {
+                @include gradient-img-only('nat-5-large', $colors: ($color-secondary-light, $color-secondary-dark));
+            }
         }
 
         &.second {
             @include gradient-img-only('nat-6', $colors: ($color-primary-light, $color-primary-dark));
+
+            @include respond(2x) {
+                @include gradient-img-only('nat-6-large', $colors: ($color-primary-light, $color-primary-dark));
+            }
         }
 
         &.third {
             @include gradient-img-only('nat-7', $colors: ($color-tertiary-light, $color-tertiary-dark));
+
+            @include respond(2x) {
+                @include gradient-img-only('nat-7-large', $colors: ($color-tertiary-light, $color-tertiary-dark));
+            }
         }
     }
 

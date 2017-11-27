@@ -115,4 +115,9 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
     @if $breakpoint == bigesk {
         @media (min-width: 112.5em) { @content }; // 1800/16 = 112.5 == 1800px
     }
+
+    // RESPONSIVE IMAGE
+    @if $breakpoint == 2x {
+        @media (min-resolution: 192dpi) and (max-width: 37.5em), (min-width: 125em) { @content };
+    }
 }
