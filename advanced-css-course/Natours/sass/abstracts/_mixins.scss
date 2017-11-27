@@ -101,26 +101,30 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
 
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media (max-width: 37.5em) { @content };  // 600/16  = 37.5  == 600px
+        @media only screen and (max-width: 37.5em) { @content };  // 600/16  = 37.5  == 600px
     }
 
     @if $breakpoint == tablort {
-        @media (max-width: 56.25em) { @content }; // 900/16  = 56.25 == 900px
+        @media only screen and (max-width: 56.25em) { @content }; // 900/16  = 56.25 == 900px
+    }
+
+    @if $breakpoint == tablortouch {
+        @media only screen and (max-width: 56.25em), only screen and (hover: none) { @content };
     }
 
     @if $breakpoint == tabland {
-        @media (max-width: 75em) { @content };    // 1200/16 = 75    == 1200px
+        @media only screen and (max-width: 75em) { @content };    // 1200/16 = 75    == 1200px
     }
 
     @if $breakpoint == bigesk {
-        @media (min-width: 112.5em) { @content }; // 1800/16 = 112.5 == 1800px
+        @media only screen and (min-width: 112.5em) { @content }; // 1800/16 = 112.5 == 1800px
     }
 
     // RESPONSIVE IMAGE
     @if $breakpoint == 2x {
-        @media (min-resolution: 192dpi) and (max-width: 37.5em),
-               (-webkit-min-device-pixel-ratio: 2) and (max-width: 37.5em),
-               (min-width: 125em) {
+        @media only screen and (min-resolution: 192dpi) and (max-width: 37.5em),
+               only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 37.5em),
+               only screen and (min-width: 125em) {
                     @content
                 };
     }

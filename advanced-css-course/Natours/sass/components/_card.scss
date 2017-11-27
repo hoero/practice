@@ -191,7 +191,7 @@
     }
 
 
-    @include respond(tablort) {
+    @include respond(tablortouch) {
         height          : auto;
         overflow        : hidden;
         background-color: $white;
