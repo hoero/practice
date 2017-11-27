@@ -1,10 +1,14 @@
 .header {
-    position         : relative;
-    height           : 95vh;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path        : polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+    height  : 90vh;
 
     @include gradient-img('hero-small', top);
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        height           : 95vh;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path        : polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    }
 
     @include respond(2x) {
         @include gradient-img('hero', top);

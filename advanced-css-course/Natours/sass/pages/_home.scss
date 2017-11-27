@@ -41,8 +41,13 @@
     }
 
     &.stories {
+        padding         : 7.1rem 0;
         position        : relative;
         background-color: transparent;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            padding: 15rem 0;
+        }
     }
 
     &.book {

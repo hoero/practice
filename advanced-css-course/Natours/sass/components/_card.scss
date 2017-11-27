@@ -6,15 +6,16 @@
     -moz-perspective: 150rem;
 
     &__side {
-        width              : 100%;
-        height             : 100%;
-        position           : absolute;
-        top                : 0;
-        left               : 0;
-        overflow           : hidden;
-        border-radius      : $radius;
-        box-shadow         : 0 1.5rem 4rem rgba($black, .15);
-        backface-visibility: hidden;
+        width                      : 100%;
+        height                     : 100%;
+        position                   : absolute;
+        top                        : 0;
+        left                       : 0;
+        overflow                   : hidden;
+        border-radius              : $radius;
+        box-shadow                 : 0 1.5rem 4rem rgba($black, .15);
+        -webkit-backface-visibility: hidden;
+        backface-visibility        : hidden;
 
         @include transition(.8s);
 
@@ -56,26 +57,50 @@
         clip-path            : polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
         &.first {
-            @include gradient-img-only('nat-5', $colors: ($color-secondary-light, $color-secondary-dark));
+            @include gradient-img-only('nat-5', $colors: (rgba($color-secondary-light, .55), rgba($color-secondary-dark, .55)));
+
+            @supports (background-blend-mode: screen) {
+                @include gradient-img-only('nat-5', $colors: ($color-secondary-light, $color-secondary-dark));
+            }
 
             @include respond(2x) {
-                @include gradient-img-only('nat-5-large', $colors: ($color-secondary-light, $color-secondary-dark));
+                @include gradient-img-only('nat-5-large', $colors: (rgba($color-secondary-light, .55), rgba($color-secondary-dark, .55)));
+
+                @supports (background-blend-mode: screen) {
+                    @include gradient-img-only('nat-5-large', $colors: ($color-secondary-light, $color-secondary-dark));
+                }
             }
         }
 
         &.second {
-            @include gradient-img-only('nat-6', $colors: ($color-primary-light, $color-primary-dark));
+            @include gradient-img-only('nat-6', $colors: (rgba($color-primary-light, .55), rgba($color-primary-dark, .55)));
+
+            @supports (background-blend-mode: screen) {
+                @include gradient-img-only('nat-6', $colors: ($color-primary-light, $color-primary-dark));
+            }
 
             @include respond(2x) {
-                @include gradient-img-only('nat-6-large', $colors: ($color-primary-light, $color-primary-dark));
+                @include gradient-img-only('nat-6-large', $colors: (rgba($color-primary-light, .55), rgba($color-primary-dark, .55)));
+
+                @supports (background-blend-mode: screen) {
+                    @include gradient-img-only('nat-6-large', $colors: ($color-primary-light, $color-primary-dark));
+                }
             }
         }
 
         &.third {
-            @include gradient-img-only('nat-7', $colors: ($color-tertiary-light, $color-tertiary-dark));
+            @include gradient-img-only('nat-7', $colors: (rgba($color-tertiary-light, .55), rgba($color-tertiary-dark, .55)));
+
+            @supports (background-blend-mode: screen) {
+                @include gradient-img-only('nat-7', $colors: ($color-tertiary-light, $color-tertiary-dark));
+            }
 
             @include respond(2x) {
-                @include gradient-img-only('nat-7-large', $colors: ($color-tertiary-light, $color-tertiary-dark));
+                @include gradient-img-only('nat-7-large', $colors: (rgba($color-tertiary-light, .55), rgba($color-tertiary-dark, .55)));
+
+                @supports (background-blend-mode: screen) {
+                    @include gradient-img-only('nat-7-large', $colors: ($color-tertiary-light, $color-tertiary-dark));
+                }
             }
         }
     }

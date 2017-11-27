@@ -118,6 +118,10 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
 
     // RESPONSIVE IMAGE
     @if $breakpoint == 2x {
-        @media (min-resolution: 192dpi) and (max-width: 37.5em), (min-width: 125em) { @content };
+        @media (min-resolution: 192dpi) and (max-width: 37.5em),
+               (-webkit-min-device-pixel-ratio: 2) and (max-width: 37.5em),
+               (min-width: 125em) {
+                    @content
+                };
     }
 }
