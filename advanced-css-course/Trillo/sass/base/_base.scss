@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+
+    @include respond(tabland) { // width < 1200?
+        font-size: 56.25%;      // 1rem = 9px,  9/16  = 56.25%
+    }
+
+    @include respond(tablort) { // width < 900?
+        font-size: 50%;         // 1rem = 8px,  8/16  = 50%
+    }
+
+    // @include respond(bigesk) {
+    //     font-size: 75%;         // 1rem = 12px, 12/16 = 75%
+    // }
+}
+
+body {
+    min-height       : 100vh;
+    box-sizing       : border-box;
+    background-image : ladient(to right bottom, (var(--color-primary-light), var(--color-primary-dark)));
+    background-repeat: no-repeat;
+}
+
+::selection {
+    color           : var(--white);
+    background-color: var(--color-primary);
+}
