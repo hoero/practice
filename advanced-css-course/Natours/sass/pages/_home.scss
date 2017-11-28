@@ -55,9 +55,8 @@
     }
 }
 
-// Test BEA/BEMA: Remove __container and put it directly in class
 .book {
-    &__container {
+    &:not(.section) {
         background-size: cover;
         border-radius  : $radius;
         box-shadow     : 0 1.5rem 4rem rgba($black, .2);
