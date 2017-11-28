@@ -1,0 +1,9 @@
+.search {
+    &__input {}
+
+    &__btn {}
+
+    &__icon {
+        @include icon($icon-20);
+    }
+}

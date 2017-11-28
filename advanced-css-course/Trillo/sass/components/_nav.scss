@@ -158,8 +158,8 @@
     }
 
 
-    // ICON
-    &__icon {
+    // ICONS
+    &__menu-icon {
         @include center-box;
 
         &,
@@ -189,25 +189,42 @@
         }
     }
 
-    &__btn:hover &__icon::before {
+    &__btn:hover &__menu-icon::before {
         top: -1rem;
     }
 
-    &__btn:hover &__icon::after {
+    &__btn:hover &__menu-icon::after {
         top: 1rem;
     }
 
-    &__checkbox:checked + &__btn &__icon {
+    &__checkbox:checked + &__btn &__menu-icon {
         background-color: transparent;
     }
 
-    &__checkbox:checked + &__btn &__icon::before {
+    &__checkbox:checked + &__btn &__menu-icon::before {
         top      : 0;
         transform: rotate(135deg);
     }
 
-    &__checkbox:checked + &__btn &__icon::after {
+    &__checkbox:checked + &__btn &__menu-icon::after {
         top      : 0;
         transform: rotate(-135deg);
     }
+
+    &__icon-box {}
+
+    &__icon {
+        @include icon($icon-22);
+    }
+
+    // NOTIFICATIONS
+    &__notification {}
+
+    // USER
+    &__user-photo {
+        height       : 3.75rem;
+        border-radius: 50%;
+    }
+
+    &__user-name {}
 }

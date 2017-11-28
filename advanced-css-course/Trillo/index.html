@@ -14,7 +14,45 @@
 
 <body>
     <div class="container">
-        <header class="header">Header</header>
+        <header class="header">
+            <img src="img/logo.png" alt="trillo logo" class="logo">
+
+            <form action="#" class="search">
+                <input type="text" class="search__input" placeholder="Search hotels">
+
+                <button class="search__btn">
+                    <svg class="search__icon">
+                        <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                    </svg>
+                </button>
+            </form>
+
+            <nav class="nav horizontal">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <svg class="nav__icon nav__link">
+                            <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                        </svg>
+
+                        <span class="nav__notification">7</span>
+                    </li>
+
+                    <li class="nav__item">
+                        <svg class="nav__icon nav__link">
+                            <use xlink:href="img/sprite.svg#icon-chat"></use>
+                        </svg>
+
+                        <span class="nav__notification">13</span>
+                    </li>
+
+                    <li class="nav__item">
+                        <img src="img/user.jpg" alt="User photo" class="nav__user-photo">
+
+                        <span class="nav__user-name">Jonas</span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
         <div class="row">
             <nav class="nav sidebar">Nav</nav>

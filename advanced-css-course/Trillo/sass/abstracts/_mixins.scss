@@ -31,6 +31,12 @@
 }
 
 
+@mixin icon($size) {
+    width : $size;
+    height: $size;
+}
+
+
 @mixin transition($seconds, $property: all, $easing: null, $delay: null) {
     transition: $property $seconds $easing $delay;
 }
