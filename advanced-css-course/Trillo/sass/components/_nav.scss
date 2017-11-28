@@ -75,12 +75,27 @@
         }
     }
 
-    &.horizontal &__item  {
-        display: inline-block;
-        margin : 0;
+    &.horizontal  {
+        align-self : stretch;
+    }
 
-        &:not(:last-child) {
-            margin-right: 1.5rem;
+    &.horizontal &__list  {
+        display    : flex;
+        align-items: center;
+        height     : 100%;
+    }
+
+    &.horizontal &__item  {
+        display    : flex;
+        align-items: center;
+
+        margin     : 0;
+        padding    : 0 2rem;
+        height     : 100%;
+        cursor     : pointer;
+
+        &:hover {
+            background-color: var(--grey-light-2);
         }
     }
 
@@ -211,20 +226,36 @@
         transform: rotate(-135deg);
     }
 
-    &__icon-box {}
+    &__icon-box {
+        position: relative;
+    }
 
     &__icon {
-        @include icon($icon-22);
+        @include icon($i22, var(--grey-dark-2));
     }
 
     // NOTIFICATIONS
-    &__notification {}
+    &__notification {
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        position        : absolute;
+        top             : 1.5rem;
+        right           : 1.1rem;
+
+        width           : 1.75rem;
+        height          : 1.75rem;
+        color           : $white;
+        background-color: var(--color-primary);
+        border-radius   : 50%;
+
+        font-size       : .8rem;
+    }
 
     // USER
     &__user-photo {
+        margin-right : 1rem;
         height       : 3.75rem;
         border-radius: 50%;
     }
-
-    &__user-name {}
 }

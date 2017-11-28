@@ -31,9 +31,10 @@
 }
 
 
-@mixin icon($size) {
+@mixin icon($size, $color: inherit) {
     width : $size;
     height: $size;
+    fill  : $color;
 }
 
 

@@ -1,9 +1,54 @@
 .search {
-    &__input {}
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex           : 0 0 40%;
 
-    &__btn {}
+    &__input {
+        margin-right    : -3.25rem;
+        padding         : .7rem 2rem;
+        width           : 90%;
+        color           : inherit;
+        background-color: var(--grey-light-2);
+        border          : none;
+        border-radius   : 10rem;
+
+        font-family     : inherit;
+        font-size       : inherit;
+
+        @include transition(.2s);
+
+        &:focus {
+            width           : 100%;
+            background-color: var(--grey-light-3);
+            outline         : none;
+        }
+
+        &::-webkit-input-placeholder {
+            color      : var(--grey-light-4);
+            font-weight: 100;
+        }
+    }
+
+    &__input:focus + &__btn {
+        background-color: var(--grey-light-3);
+    }
+
+    &__btn {
+        border          : none;
+        background-color: var(--grey-light-2);
+        cursor          : pointer;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(.2rem);
+        }
+    }
 
     &__icon {
-        @include icon($icon-20);
+        @include icon($i20, var(--grey-dark-3));
     }
 }
