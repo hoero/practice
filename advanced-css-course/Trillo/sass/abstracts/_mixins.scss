@@ -31,15 +31,21 @@
 }
 
 
-@mixin icon($size, $color: inherit) {
-    width : $size;
-    height: $size;
-    fill  : $color;
+@mixin icon($size, $color: currentColor, $mr: null) {
+    margin-right: $mr;
+    width       : $size;
+    height      : $size;
+    fill        : $color;
 }
 
 
 @mixin transition($seconds, $property: all, $easing: null, $delay: null) {
     transition: $property $seconds $easing $delay;
+}
+
+
+@mixin gransition($transitions...) {
+    transition: $transitions;
 }
 
 
