@@ -31,6 +31,6 @@ body {
 }
 
 ::selection {
-    color           : var(--white);
+    color           : $white;
     background-color: var(--color-primary);
 }

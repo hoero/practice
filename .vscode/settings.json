@@ -11,5 +11,11 @@
         "savePath"     : "/advanced-css-course/Trillo/css"
       }
     ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**",
+        // Below put the project(s) that is/are not currently in development
+        "**/advanced-css-course/Natours/sass/**"
+    ],
     "liveSassCompile.settings.generateMap": false
 }
