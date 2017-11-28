@@ -94,14 +94,6 @@
             .col, [class^='col-'] {
                 flex: 1;
             }
-
-            @for $i from 1 through 6 {
-                @for $j from 1 through 6 {
-                    .col-#{$i}-of-#{$j} {
-                        width: calc-2d($i, $j, $gutter-horizontal);
-                    }
-                }
-            }
         }
     }
 

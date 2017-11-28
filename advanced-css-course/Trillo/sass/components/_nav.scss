@@ -258,4 +258,15 @@
         height       : 3.75rem;
         border-radius: 50%;
     }
+
+    // ASIDE
+    &.aside {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-between;
+    }
+
+    &.aside &__icon {
+        @include icon($i17);
+    }
 }
