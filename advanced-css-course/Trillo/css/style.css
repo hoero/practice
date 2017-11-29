@@ -199,8 +199,14 @@ body {
   font-size: inherit;
   text-transform: initial; }
 
+.btn.text span {
+  margin-left: .3rem;
+  transition: margin-left 0.2s; }
+
 .btn.text:hover {
   color: var(--grey-dark-1); }
+  .btn.text:hover span {
+    margin-left: .8rem; }
 
 .btn.text:active, .btn.text:focus {
   outline: none;
@@ -585,6 +591,49 @@ body {
     .recommend__photo:not(:last-child) {
       margin-right: -1.5rem; }
 
+.review {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 3.5rem;
+  padding: 3rem;
+  background-color: white;
+  box-shadow: var(--shadow-light); }
+  .review::before {
+    position: absolute;
+    top: -2.4rem;
+    left: -1rem;
+    z-index: 0;
+    color: var(--grey-light-2);
+    content: '\201C';
+    font-family: sans-serif;
+    font-size: 20rem;
+    line-height: 1; }
+  .review__text {
+    position: relative; }
+  .review__user {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem; }
+    .review__user-box {
+      margin-right: auto; }
+    .review__user-name {
+      margin-bottom: .4rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase; }
+    .review__user-date {
+      color: var(--grey-dark-3);
+      font-size: 1rem; }
+  .review__photo {
+    margin-right: 1.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%; }
+  .review__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300; }
+
 .row {
   display: flex; }
   .row .col, .row [class^='col-'] {
@@ -615,16 +664,20 @@ body {
 
 .detail {
   display: flex;
+  align-items: flex-start;
   padding: 4.5rem;
   background-color: var(--grey-light-1);
-  border-bottom: var(--line); }
+  border-bottom: var(--line);
+  font-size: 1.4rem; }
 
 .description {
   flex: 0 0 60%;
   margin-right: 4.5rem;
   padding: 3rem;
-  box-shadow: var(--shadow-light);
-  font-size: 1.4rem; }
+  box-shadow: var(--shadow-light); }
 
-.user-reviews {
+.reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1; }

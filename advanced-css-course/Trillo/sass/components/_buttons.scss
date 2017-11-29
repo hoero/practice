@@ -65,8 +65,17 @@
             text-transform: initial;
         }
 
+        & span {
+            margin-left: .3rem;
+            @include transition(.2s, margin-left);
+        }
+
         &:hover {
             color: var(--grey-dark-1);
+
+            span {
+                margin-left: .8rem;
+            }
         }
 
         &:active, &:focus {
