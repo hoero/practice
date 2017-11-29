@@ -7,9 +7,8 @@
         background-color: transparent;
         border          : none;
         cursor          : pointer;
-
-        text-transform : uppercase;
-        text-decoration: none;
+        text-transform  : uppercase;
+        text-decoration : none;
 
         @include transition(.2s);
     }
@@ -18,7 +17,8 @@
         &,
         &:link,
         &:visited {
-            padding      : 1.5rem 4rem;
+            position     : relative;
+            padding      : 0 7.5rem;
             border-radius: 10rem;
         }
 
@@ -27,15 +27,20 @@
             box-shadow: 0 1rem 2rem rgba($black, .2);
 
             &::after {
-                transform: scaleX(1.4) scaleY(1.6);
-                opacity  : 0;
+                opacity   : 0;
+                visibility: hidden;
+                animation : scale 1s;
             }
         }
 
-        &:active, &:focus {
-            outline   : none;
+        &:active {
             transform : translateY(-.1rem);
             box-shadow: 0 .5rem 1rem rgba($black, .2);
+        }
+
+        &:focus {
+            outline  : none;
+            animation: pulsate 1s infinite;
         }
 
         &::after {
@@ -84,6 +89,21 @@
         }
     }
 
+    &.brand {
+        color           : $white;
+        font-size       : 1.5rem;
+        font-weight     : 300;
+        background-image: ladient(to right, (var(--color-primary-light), var(--color-primary-dark)));
+
+        &:hover {
+            background-image: ladient(to left, (var(--color-primary-light), var(--color-primary-dark)));
+        }
+
+        &:after {
+            background-image: ladient(to right, (var(--color-primary-light), var(--color-primary-dark)));
+        }
+    }
+
     &.white {
         color           : $grey-dark-1 ;
         background-color: $white;
@@ -105,5 +125,35 @@
     &.animated {
         animation          : moveInBottom .5s ease-out .75s;
         animation-fill-mode: backwards;
+    }
+
+    &__visible ,
+    &__invisible  {
+        display: inline-block;
+        padding: 2rem 0;
+        width  : 100%;
+        height : 100%;
+
+        @include transition(.2s);
+    }
+
+    &__invisible {
+        position  : absolute;
+        top       : -100%;
+        left      : 0;
+        opacity   : 0;
+        visibility: hidden;
+    }
+
+    &:hover &__visible   {
+        transform : translateY(100%);
+        opacity   : 0;
+        visibility: hidden;
+    }
+
+    &:hover &__invisible {
+        top       : 0;
+        opacity   : 1;
+        visibility: visible;
     }
 }

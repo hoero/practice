@@ -74,6 +74,14 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
     transform: scale(1);
     box-shadow: none; } }
 
+@keyframes scale {
+  0% {
+    transform: scaleX(0) scaleY(0); }
+  50% {
+    transform: scaleX(1.4) scaleY(1.6); }
+  100% {
+    transform: scaleX(0) scaleY(0); } }
+
 *:not(img),
 *::before,
 *::after {
@@ -165,20 +173,25 @@ body {
   transition: all 0.2s; }
 
 .btn.round, .btn.round:link, .btn.round:visited {
-  padding: 1.5rem 4rem;
+  position: relative;
+  padding: 0 7.5rem;
   border-radius: 10rem; }
 
 .btn.round:hover {
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
   .btn.round:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
+    opacity: 0;
+    visibility: hidden;
+    animation: scale 1s; }
 
-.btn.round:active, .btn.round:focus {
-  outline: none;
+.btn.round:active {
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn.round:focus {
+  outline: none;
+  animation: pulsate 1s infinite; }
 
 .btn.round::after {
   width: 100%;
@@ -212,6 +225,16 @@ body {
   outline: none;
   animation: pulsate 1s infinite; }
 
+.btn.brand {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+  background-image: linear-gradient( to right, var(--color-primary-light), var(--color-primary-dark) ); }
+  .btn.brand:hover {
+    background-image: linear-gradient( to left, var(--color-primary-light), var(--color-primary-dark) ); }
+  .btn.brand:after {
+    background-image: linear-gradient( to right, var(--color-primary-light), var(--color-primary-dark) ); }
+
 .btn.white {
   color: #333;
   background-color: white; }
@@ -227,6 +250,30 @@ body {
 .btn.animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
+
+.btn__visible, .btn__invisible {
+  display: inline-block;
+  padding: 2rem 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s; }
+
+.btn__invisible {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden; }
+
+.btn:hover .btn__visible {
+  transform: translateY(100%);
+  opacity: 0;
+  visibility: hidden; }
+
+.btn:hover .btn__invisible {
+  top: 0;
+  opacity: 1;
+  visibility: visible; }
 
 .search {
   display: flex;
@@ -633,6 +680,15 @@ body {
     color: var(--color-primary);
     font-size: 2.2rem;
     font-weight: 300; }
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; }
+  .cta__book-now {
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase; }
 
 .row {
   display: flex; }

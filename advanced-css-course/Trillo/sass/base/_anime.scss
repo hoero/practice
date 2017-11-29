@@ -58,3 +58,17 @@
         box-shadow: none;
     }
 }
+
+@keyframes scale {
+    0% {
+        transform : scaleX(0) scaleY(0);
+    }
+
+    50% {
+        transform : scaleX(1.4) scaleY(1.6);
+    }
+
+    100% {
+        transform : scaleX(0) scaleY(0);
+    }
+}
