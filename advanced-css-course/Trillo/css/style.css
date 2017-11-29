@@ -246,6 +246,12 @@ body {
     height: 2rem;
     fill: var(--grey-dark-3); }
 
+.gallery {
+  display: flex; }
+  .gallery__photo {
+    display: block;
+    width: 100%; }
+
 .logo {
   margin-left: 2rem;
   height: 3.25rem; }
@@ -485,6 +491,15 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
   transform: rotate(5deg) scale(1.3);
   color: #eb2f64; }
+
+.overview {
+  display: flex; }
+  .overview__stars {
+    margin-right: auto; }
+  .overview__icon-star, .overview__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: var(--color-primary); }
 
 .row {
   display: flex; }
