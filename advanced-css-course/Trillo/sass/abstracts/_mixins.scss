@@ -39,6 +39,24 @@
 }
 
 
+@mixin icon-css($size, $img, $color: currentColor, $mr: null, $url: $media-url, $format: '.svg') {
+    display           : inline-block;
+    margin-right      : $mr;
+    width             : $size;
+    height            : $size;
+    content           : "";
+    // background-image  : url($url + $img + $format);
+    // background-size   : cover;
+
+    // For support
+    background-color  : $color;
+    -webkit-mask-image: url($url + $img + $format);
+    -webkit-mask-size : cover;
+    mask-image        : url($url + $img + $format);
+    mask-size         : cover;
+}
+
+
 @mixin transition($seconds, $property: all, $easing: null, $delay: null) {
     transition: $property $seconds $easing $delay;
 }

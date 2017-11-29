@@ -74,7 +74,7 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
     transform: scale(1);
     box-shadow: none; } }
 
-*,
+*:not(img),
 *::before,
 *::after {
   margin: 0;
@@ -111,6 +111,9 @@ body {
   color: var(--grey-light-4);
   font-size: 1.2rem;
   text-align: center; }
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem; }
 
 .u-center-text {
   text-align: center !important; }
@@ -262,6 +265,29 @@ body {
   .gallery__photo {
     display: block;
     width: 100%; }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  list-style: none;
+  border-top: var(--line);
+  border-bottom: var(--line); }
+  .list__item {
+    flex: 0 0 50%;
+    margin-bottom: .7rem; }
+    .list__item::before {
+      display: inline-block;
+      margin-right: 0.7rem;
+      width: 1rem;
+      height: 1rem;
+      content: "";
+      background-color: var(--color-primary);
+      -webkit-mask-image: url("../img/chevron-thin-right.svg");
+      -webkit-mask-size: cover;
+      mask-image: url("../img/chevron-thin-right.svg");
+      mask-size: cover; }
 
 .logo {
   margin-left: 2rem;
@@ -543,6 +569,21 @@ body {
     .overview__rating-count {
       font-size: .8rem;
       text-transform: uppercase; }
+
+.recommend {
+  display: flex;
+  align-items: center;
+  color: var(--grey-dark-3);
+  font-size: 1.3rem; }
+  .recommend__count {
+    margin-right: auto; }
+  .recommend__photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 0.3rem solid white; }
+    .recommend__photo:not(:last-child) {
+      margin-right: -1.5rem; }
 
 .row {
   display: flex; }

@@ -1,0 +1,18 @@
+.list {
+    display      : flex;
+    flex-wrap    : wrap;
+    margin       : 3rem 0;
+    padding      : 3rem 0;
+    list-style   : none;
+    border-top   : var(--line);
+    border-bottom: var(--line);
+
+    &__item {
+        flex         : 0 0 50%;
+        margin-bottom: .7rem;
+
+        &::before {
+            @include icon-css($i10, 'chevron-thin-right', var(--color-primary), .7rem);
+        }
+    }
+}

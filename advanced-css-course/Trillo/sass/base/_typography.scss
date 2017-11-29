@@ -11,3 +11,7 @@ body {
     font-size : 1.2rem;
     text-align: center;
 }
+
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
