@@ -69,5 +69,10 @@ $radius: .3rem;
 
 
     // SHADOWS
-    --shadow: 0 2rem 6rem rgba($black, .3);
+    --shadow      : 0 2rem 6rem rgba($black, .3);
+    --shadow-light: 0 2rem 5rem rgba($black, .06);
+
+
+    // BORDER
+    --line: 1px solid var(--grey-light-2);
 }
