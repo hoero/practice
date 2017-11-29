@@ -2,10 +2,11 @@
     &,
     &:link,
     &:visited {
-        position       : relative;
-        display        : inline-block;
-        border         : none;
-        cursor         : pointer;
+        position        : relative;
+        display         : inline-block;
+        background-color: transparent;
+        border          : none;
+        cursor          : pointer;
 
         text-transform : uppercase;
         text-decoration: none;
@@ -53,26 +54,24 @@
     }
 
     &.text {
+        &,
         &:link,
         &:visited {
-            padding      : .3rem;
-            border-bottom: .1rem solid $color-primary;
+            padding       : 0 0 .2rem;
+            color         : var(--color-primary);
+            border-bottom : .1rem solid currentColor;
 
-            font-size    : $default-font-size;
-            color        : $color-primary;
+            font-size     : inherit;
+            text-transform: initial;
         }
 
         &:hover {
-            background-color: $color-primary;
-            color           : $white;
-            box-shadow      : 0 1rem 2rem rgba($black, .15);
-            transform       : translateY(-.2rem);
+            color: var(--grey-dark-1);
         }
 
         &:active, &:focus {
-            outline   : none;
-            box-shadow: 0 .5rem 1rem rgba($black, .15);
-            transform : translateY(0);
+            outline  : none;
+            animation: pulsate 1s infinite;
         }
     }
 
