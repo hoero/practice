@@ -3,6 +3,10 @@
     padding   : 3.5rem 0;
     text-align: center;
 
+    @include respond(tablort) {
+        padding      : 2.5rem 0;
+    }
+
     &__book-now {
         margin-bottom : 2.5rem;
         font-size     : 2rem;

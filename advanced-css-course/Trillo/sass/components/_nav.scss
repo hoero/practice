@@ -199,18 +199,36 @@
         flex-direction : column;
         justify-content: space-between;
         font-size      : 1.4rem;
+
+        @include respond(tablort) {
+            flex-direction: row;
+        }
     }
 
     &.aside &__list {
         margin: 3.5rem 0 0;
+
+        @include respond(tablort) {
+            display: flex;
+            margin : 0;
+            width  : 100%;
+        }
     }
 
     &.aside &__item  {
         position: relative;
         margin  : 0;
 
+        @include respond(tablort) {
+            flex: 1;
+        }
+
         &:not(:last-child) {
             margin-bottom: .5rem;
+
+            @include respond(tablort) {
+                margin : 0;
+            }
         }
 
         &::before {
@@ -232,7 +250,7 @@
     }
 
     &.aside &__item:hover::before,
-    .active {
+    &.aside &__item.active::before {
         width    : 100%;
         transform: scaleY(1);
     }
@@ -243,6 +261,11 @@
             position: relative;
             padding : 1.5rem 3rem;
             color   : var(--grey-light-1);
+
+            @include respond(tablort) {
+                justify-content: center;
+                padding        : 2rem;
+            }
         }
 
         // &:hover,

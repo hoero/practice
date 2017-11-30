@@ -91,10 +91,7 @@ ORDER: Base + Typography -> Layout + Grid -> Pages + Components
 
 html {
   font-size: 62.5%; }
-  @media only screen and (max-width: 75em) {
-    html {
-      font-size: 56.25%; } }
-  @media only screen and (max-width: 56.25em) {
+  @media only screen and (max-width: 68.75em) {
     html {
       font-size: 50%; } }
 
@@ -119,6 +116,9 @@ body {
   color: var(--grey-light-4);
   font-size: 1.2rem;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .paragraph:not(:last-of-type) {
   margin-bottom: 2rem; }
@@ -493,15 +493,29 @@ body {
   flex-direction: column;
   justify-content: space-between;
   font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .nav.aside {
+      flex-direction: row; } }
 
 .nav.aside .nav__list {
   margin: 3.5rem 0 0; }
+  @media only screen and (max-width: 56.25em) {
+    .nav.aside .nav__list {
+      display: flex;
+      margin: 0;
+      width: 100%; } }
 
 .nav.aside .nav__item {
   position: relative;
   margin: 0; }
+  @media only screen and (max-width: 56.25em) {
+    .nav.aside .nav__item {
+      flex: 1; } }
   .nav.aside .nav__item:not(:last-child) {
     margin-bottom: .5rem; }
+    @media only screen and (max-width: 56.25em) {
+      .nav.aside .nav__item:not(:last-child) {
+        margin: 0; } }
   .nav.aside .nav__item::before {
     content: '';
     position: absolute;
@@ -516,7 +530,7 @@ body {
     background-color: var(--color-primary-light); }
 
 .nav.aside .nav__item:hover::before,
-.nav .active {
+.nav.aside .nav__item.active::before {
   width: 100%;
   transform: scaleY(1); }
 
@@ -524,6 +538,10 @@ body {
   position: relative;
   padding: 1.5rem 3rem;
   color: var(--grey-light-1); }
+  @media only screen and (max-width: 56.25em) {
+    .nav.aside .nav__link:link, .nav.aside .nav__link:visited {
+      justify-content: center;
+      padding: 2rem; } }
 
 .nav.aside .nav__icon {
   margin-right: 2rem;
@@ -630,13 +648,15 @@ body {
   font-size: 1.3rem; }
   .recommend__count {
     margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     border: 0.3rem solid white; }
     .recommend__photo:not(:last-child) {
-      margin-right: -1.5rem; }
+      margin-right: -2rem; }
 
 .review {
   position: relative;
@@ -645,6 +665,10 @@ body {
   padding: 3rem;
   background-color: white;
   box-shadow: var(--shadow-light); }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      margin-bottom: 3rem;
+      padding: 2rem; } }
   .review::before {
     position: absolute;
     top: -2.4rem;
@@ -684,6 +708,9 @@ body {
 .cta {
   padding: 3.5rem 0;
   text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem 0; } }
   .cta__book-now {
     margin-bottom: 2.5rem;
     font-size: 2rem;
@@ -692,6 +719,9 @@ body {
 
 .row {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .row {
+      flex-direction: column; } }
   .row .col, .row [class^='col-'] {
     flex: 1; }
 
@@ -710,6 +740,11 @@ body {
   min-height: 50rem;
   background-color: var(--grey-light-2);
   box-shadow: var(--shadow); }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      max-width: 100%;
+      width: 100%; } }
 
 .sidebar {
   flex: 0 0 18%;
@@ -725,12 +760,19 @@ body {
   background-color: var(--grey-light-1);
   border-bottom: var(--line);
   font-size: 1.4rem; }
+  @media only screen and (max-width: 56.25em) {
+    .detail {
+      padding: 3rem; } }
 
 .description {
   flex: 0 0 60%;
   margin-right: 4.5rem;
   padding: 3rem;
   box-shadow: var(--shadow-light); }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      margin-right: 3rem;
+      padding: 2rem; } }
 
 .reviews {
   display: flex;

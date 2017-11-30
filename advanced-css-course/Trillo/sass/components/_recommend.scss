@@ -8,6 +8,10 @@
         margin-right: auto;
     }
 
+    &__friends {
+        display: flex;
+    }
+
     &__photo {
         width        : 4rem;
         height       : 4rem;
@@ -15,7 +19,7 @@
         border       : .3rem solid $white;
 
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }

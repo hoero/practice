@@ -6,6 +6,11 @@
     background-color: $white;
     box-shadow      : var(--shadow-light);
 
+    @include respond(tablort) {
+        margin-bottom: 3rem;
+        padding      : 2rem;
+    }
+
     &::before {
         position   : absolute;
         top        : -2.4rem;

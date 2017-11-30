@@ -10,6 +10,10 @@
     border-bottom   : var(--line);
 
     font-size       : 1.4rem;
+
+    @include respond(tablort) {
+        padding: 3rem;
+    }
 }
 
 .description {
@@ -17,6 +21,11 @@
     margin-right: 4.5rem;
     padding     : 3rem;
     box-shadow  : var(--shadow-light);
+
+    @include respond(tablort) {
+        margin-right: 3rem;
+        padding     : 2rem;
+    }
 }
 
 .reviews {

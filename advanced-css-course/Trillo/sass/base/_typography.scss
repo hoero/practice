@@ -10,6 +10,10 @@ body {
     color     : var(--grey-light-4);
     font-size : 1.2rem;
     text-align: center;
+
+    @include respond(tablort) {
+        display: none;
+    }
 }
 
 .paragraph:not(:last-of-type) {
