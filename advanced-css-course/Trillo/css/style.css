@@ -280,6 +280,11 @@ body {
   justify-content: center;
   align-items: center;
   flex: 0 0 40%; }
+  @media only screen and (max-width: 37.5em) {
+    .search {
+      order: 1;
+      flex: 0 0 100%;
+      background-color: var(--grey-light-2); } }
   .search__input {
     margin-right: -3.25rem;
     padding: .7rem 2rem;
@@ -542,12 +547,22 @@ body {
     .nav.aside .nav__link:link, .nav.aside .nav__link:visited {
       justify-content: center;
       padding: 2rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .nav.aside .nav__link:link, .nav.aside .nav__link:visited {
+      flex-direction: column;
+      padding: 1.5rem .5rem; } }
 
 .nav.aside .nav__icon {
   margin-right: 2rem;
   width: 1.75rem;
   height: 1.75rem;
   fill: currentColor; }
+  @media only screen and (max-width: 37.5em) {
+    .nav.aside .nav__icon {
+      margin: 0 0 .7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: currentColor; } }
 
 .nav.primary {
   width: 100%;
@@ -610,6 +625,10 @@ body {
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__heading {
+        padding: 1.25rem 2rem;
+        font-size: 1.8rem; } }
   .overview__stars {
     display: flex;
     margin-right: auto; }
@@ -633,13 +652,22 @@ body {
     padding: 0 2.25rem;
     color: white;
     background-color: var(--color-primary); }
+    @media only screen and (max-width: 37.5em) {
+      .overview__rating {
+        padding: 0rem 1.5rem; } }
     .overview__rating-average {
       margin-bottom: -.3rem;
       font-size: 2.25rem;
       font-weight: 300; }
+      @media only screen and (max-width: 37.5em) {
+        .overview__rating-average {
+          font-size: 1.8rem; } }
     .overview__rating-count {
       font-size: .8rem;
       text-transform: uppercase; }
+      @media only screen and (max-width: 37.5em) {
+        .overview__rating-count {
+          font-size: .5rem; } }
 
 .recommend {
   display: flex;
@@ -733,6 +761,11 @@ body {
   background-color: white;
   border-bottom: var(--line);
   font-size: 1.4rem; }
+  @media only screen and (max-width: 37.5em) {
+    .header {
+      flex-wrap: wrap;
+      align-content: space-around;
+      height: 11rem; } }
 
 .container {
   margin: 8rem auto;
@@ -763,6 +796,9 @@ body {
   @media only screen and (max-width: 56.25em) {
     .detail {
       padding: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   flex: 0 0 60%;
@@ -773,6 +809,9 @@ body {
     .description {
       margin-right: 3rem;
       padding: 2rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      margin: 0 0 3rem 0; } }
 
 .reviews {
   display: flex;

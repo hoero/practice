@@ -6,4 +6,10 @@
     background-color: $white;
     border-bottom   : var(--line);
     font-size       : 1.4rem;
+
+    @include respond(phone) {
+        flex-wrap    : wrap;
+        align-content: space-around;
+        height       : 11rem;
+    }
 }

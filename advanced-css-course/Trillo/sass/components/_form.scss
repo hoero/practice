@@ -4,6 +4,12 @@
     align-items    : center;
     flex           : 0 0 40%;
 
+    @include respond(phone) {
+        order           : 1;
+        flex            : 0 0 100%;
+        background-color: var(--grey-light-2);
+    }
+
     &__input {
         margin-right    : -3.25rem;
         padding         : .7rem 2rem;
