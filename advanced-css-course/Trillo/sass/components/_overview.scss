@@ -1,7 +1,12 @@
 .overview {
     display      : flex;
     align-items  : center;
-    border-bottom: var(--line);;
+    border-bottom: var(--line);
+
+    @include respond(max, $bp-375) {
+        flex-wrap      : wrap;
+        justify-content: center;
+    }
 
     &__heading {
         padding       : 1.5rem 3rem;
@@ -14,11 +19,21 @@
             padding  : 1.25rem 2rem;
             font-size: 1.8rem;
         }
+
+        @include respond(max, $bp-414) {
+            flex      : 0 0 100%;
+            padding   : 1.25rem 1.5rem;
+            text-align: center;
+        }
     }
 
     &__stars {
         display     : flex; // Flex in parent to remove space below SVGs
         margin-right: auto;
+
+        @include respond(max, $bp-414) {
+            margin: 0 2rem 2rem 0;
+        }
     }
 
     &__icon-star,
@@ -30,6 +45,10 @@
         display    : flex;
         align-items: center;
         font-size  : 1.2rem;
+
+        @include respond(max, $bp-414) {
+            margin: 0 2rem 2rem 0;
+        }
     }
 
     &__icon-location {
@@ -51,6 +70,13 @@
             padding: 0rem 1.5rem;
         }
 
+        @include respond(max, $bp-414) {
+            margin          : 0 0 2rem;
+            padding         : 0 1rem;
+            color           : var(--color-primary);
+            background-color: transparent;
+        }
+
         &-average {
             margin-bottom: -.3rem;
             font-size    : 2.25rem;
@@ -58,6 +84,10 @@
 
             @include respond(phone) {
                 font-size: 1.8rem;
+            }
+
+            @include respond(max, $bp-375) {
+                margin: 0;
             }
         }
 
@@ -67,6 +97,14 @@
 
             @include respond(phone) {
                 font-size: .5rem;
+            }
+
+            @include respond(max, $bp-414) {
+                font-size: 1.2rem;
+            }
+
+            @include respond(max, $bp-375) {
+                font-size: 1.1rem;
             }
         }
     }

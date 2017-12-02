@@ -10,6 +10,9 @@
     @include respond(phone) {
         flex-wrap    : wrap;
         align-content: space-around;
-        height       : 11rem;
+    }
+
+    @include respond(max, $bp-500) {
+        height: 11rem;
     }
 }

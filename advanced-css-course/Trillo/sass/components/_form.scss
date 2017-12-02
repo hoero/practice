@@ -4,10 +4,9 @@
     align-items    : center;
     flex           : 0 0 40%;
 
-    @include respond(phone) {
+    @include respond(max, $bp-500) {
         order           : 1;
         flex            : 0 0 100%;
-        background-color: var(--grey-light-2);
     }
 
     &__input {
@@ -22,12 +21,21 @@
         font-family     : inherit;
         font-size       : inherit;
 
+        @include respond(max, $bp-500) {
+            margin: 0 -.5rem 0 2rem;
+            width: 100%;
+        }
+
         @include transition(.2s);
 
         &:focus {
             width           : 100%;
             background-color: var(--grey-light-3);
             outline         : none;
+
+            @include respond(max, $bp-500) {
+                background-color: darken($grey-light-3, 1.5);
+            }
         }
 
         &::-webkit-input-placeholder {
@@ -44,6 +52,11 @@
         border          : none;
         background-color: var(--grey-light-2);
         cursor          : pointer;
+
+        @include respond(max, $bp-500) {
+            position: relative;
+            right   : 2.5rem;
+        }
 
         &:focus {
             outline: none;

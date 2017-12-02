@@ -11,8 +11,12 @@
         flex         : 0 0 50%;
         margin-bottom: .7rem;
 
+        @include respond(max, $bp-375) {
+            flex: 0 0 100%;
+        }
+
         &::before {
-            @include icon-css($i10, 'chevron-thin-right', var(--color-primary), .7rem);
+            @include iconss($i10, 'chevron-thin-right', var(--color-primary), .7rem);
         }
     }
 }

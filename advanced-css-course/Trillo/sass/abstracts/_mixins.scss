@@ -39,31 +39,35 @@
 }
 
 
-@mixin icon-css($size, $img, $color: currentColor, $mr: null, $url: $media-url, $format: '.svg') {
-    display           : inline-block;
-    margin-right      : $mr;
-    width             : $size;
-    height            : $size;
-    content           : "";
-    // background-image  : url($url + $img + $format);
-    // background-size   : cover;
+@mixin iconss($size, $img, $color: currentColor, $mr: null, $url: $media-url, $format: '.svg') {
+    display         : inline-block;
+    margin-right    : $mr;
+    width           : $size;
+    height          : $size;
+    content         : "";
+    background-image: url($url + $img + $format);
+    background-size : cover;
 
-    // For support
-    background-color  : $color;
-    -webkit-mask-image: url($url + $img + $format);
-    -webkit-mask-size : cover;
-    mask-image        : url($url + $img + $format);
-    mask-size         : cover;
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color  : $color;
+        -webkit-mask-image: url($url + $img + $format);
+        -webkit-mask-size : cover;
+        mask-image        : url($url + $img + $format);
+        mask-size         : cover;
+        background-image  : none;
+    }
 }
 
 
 @mixin transition($seconds, $property: all, $easing: null, $delay: null) {
-    transition: $property $seconds $easing $delay;
+    transition         : $property $seconds $easing $delay;
+    backface-visibility: hidden;
 }
 
 
 @mixin gransition($transitions...) {
-    transition: $transitions;
+    transition         : $transitions;
+    backface-visibility: hidden;
 }
 
 
@@ -114,6 +118,10 @@
     @if $display == flex {
         .row {
             display: flex;
+
+            @include respond(max, $bp-1024) {
+                flex: 1;
+            }
 
             @include respond(tablort) {
                 flex-direction: column;

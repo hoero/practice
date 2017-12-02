@@ -68,6 +68,10 @@
 
             font-size     : inherit;
             text-transform: initial;
+
+            @include respond(max, $bp-414) {
+                font-size: 1.5rem;
+            }
         }
 
         & span {
