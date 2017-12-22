@@ -7,9 +7,16 @@ $grey-light-2      : #aaa;
 $grey-dark-1       : #54483A;
 $grey-dark-2       : #6D5D4B;
 
+
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+
+/* GRID
+  To use named CSS grid lines is necessary a string like the one below, if not, it'll get a compilation error
+*/
+$grid-cols: '[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
 
 *:not(img),
 *::before,
@@ -21,6 +28,7 @@ $font-display: 'Josefin Sans', sans-serif;
 
 html {
     box-sizing: border-box;
+    font-size : 62.5%;
 }
 
 body {
@@ -31,6 +39,7 @@ body {
 }
 
 .container {
-    display           : grid;
-    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    display              : grid;
+    grid-template-rows   : 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: #{$grid-cols}; // Because it's a string
 }
