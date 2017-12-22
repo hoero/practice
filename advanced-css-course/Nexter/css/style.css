@@ -1,3 +1,6 @@
+/* GRID
+  To use named CSS grid lines is necessary a string like the one below, if not, it'll get a compilation error
+*/
 *:not(img),
 *::before,
 *::after {
