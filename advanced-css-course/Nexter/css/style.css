@@ -23,6 +23,17 @@ body {
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]; }
 
+h1, .heading-1, h2, .heading-2, h3, .heading-3, h4, .heading-4 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400; }
+
+h4, .heading-4 {
+  font-size: 1.9rem; }
+  h4--light, .heading-4--light {
+    color: #f9f7f6; }
+  h4--dark, .heading-4--dark {
+    color: #54483A; }
+
 .sidebar {
   background-color: #c69963;
   grid-row: 1 / -1;
@@ -38,10 +49,26 @@ body {
 
 .features {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
+  align-items: start;
   margin: 15rem 0;
   grid-column: center-start / center-end; }
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem; }
+  .feature__icon {
+    grid-row: 1 / span 2;
+    padding: 0.05rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: #c69963;
+    transform: translateY(-1rem); }
+  .feature__text {
+    font-size: 1.7rem; }
 
 .story__pictures {
   background-color: #c69963;
