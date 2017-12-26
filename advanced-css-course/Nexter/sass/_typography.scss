@@ -8,6 +8,9 @@
 
 h1, .heading-1 {
     @extend %heading;
+    color      : $grey-light-1;
+    font-size  : 4.5rem;
+    line-height: 1;
 }
 
 h2, .heading-2 {
