@@ -116,8 +116,26 @@ h4, .heading-4 {
   .header .btn {
     align-self: start;
     justify-self: start; }
-  .header__seeon-logos img {
-    height: 2.5rem; }
+  .header__seeon-txt {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-column-gap: 1.5rem;
+    align-items: center;
+    color: #aaa;
+    font-size: 1.6rem; }
+    .header__seeon-txt::before, .header__seeon-txt::after {
+      display: block;
+      height: 1px;
+      content: '';
+      background-color: currentColor; }
+  .header__seeon-logos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 3rem;
+    justify-items: center; }
+    .header__seeon-logos img {
+      height: 2.5rem;
+      filter: brightness(70%); }
 
 .realtors {
   background-color: #101d2c;
