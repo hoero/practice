@@ -138,8 +138,20 @@ h4, .heading-4 {
   font-style: italic; }
 
 .homes {
-  background-color: #101d2c;
-  grid-column: center-start / center-end; }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 7rem;
+  grid-column: center-start / center-end;
+  margin: 15rem 0; }
+
+.home {
+  background-color: #f9f7f6; }
+  .home__img {
+    width: 100%; }
+  .home__location svg, .home__rooms svg, .home__area svg, .home__price svg {
+    width: 2rem;
+    height: 2rem;
+    fill: #c69963; }
 
 .gallery {
   background-color: #54483A;
