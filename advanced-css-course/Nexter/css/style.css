@@ -70,9 +70,29 @@ h4, .heading-4 {
   margin-bottom: 8rem; }
 
 .sidebar {
-  background-color: #c69963;
+  display: flex;
+  justify-content: center;
   grid-row: 1 / -1;
-  grid-column: sidebar-start / sidebar-end; }
+  grid-column: sidebar-start / sidebar-end;
+  background-color: #c69963; }
+
+.nav-btn {
+  margin-top: 3rem;
+  width: 4.5rem;
+  height: 2px;
+  background-color: white;
+  border: none;
+  border-radius: 0; }
+  .nav-btn::before, .nav-btn::after {
+    display: block;
+    width: 4.5rem;
+    height: 2px;
+    content: '';
+    background-color: white; }
+  .nav-btn::before {
+    transform: translateY(-1.5rem); }
+  .nav-btn::after {
+    transform: translateY(1.3rem); }
 
 .header {
   background-color: #54483A;
