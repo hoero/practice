@@ -5,7 +5,21 @@
     }
 
     &__content {
-        background-color: $grey-light-1;
+        // display         : flex;
+        // flex-direction  : column;
+        // justify-content : center;
+        // align-items     : flex-start;
+        display         : grid;
+        align-content   : center;
+        justify-items   : start;
         grid-column     : col-start 5 / full-end;
+        padding         : 6rem 8vw;
+        background-color: $grey-light-1;
+    }
+
+    &__txt {
+        margin-bottom: 4rem;
+        font-size    : 1.5rem;
+        font-style   : italic;
     }
 }

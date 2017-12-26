@@ -1,6 +1,9 @@
 %heading {
     font-family: $font-display;
     font-weight: 400;
+
+    &--light { color: $grey-light-1; }
+    &--dark  { color: $grey-dark-1; }
 }
 
 h1, .heading-1 {
@@ -9,16 +12,43 @@ h1, .heading-1 {
 
 h2, .heading-2 {
     @extend %heading;
+    font-size  : 4rem;
+    font-style : italic;
+    line-height: 1;
 }
 
 h3, .heading-3 {
     @extend %heading;
+    color         : $color-primary;
+    font-size     : 1.6rem;
+    text-transform: uppercase;
 }
 
 h4, .heading-4 {
     @extend %heading;
     font-size: 1.9rem;
+}
 
-    &--light { color: $grey-light-1; }
-    &--dark  { color: $grey-dark-1; }
+.btn {
+    padding         : 1.8rem 3rem;
+    color           : white;
+    background-color: $color-primary;
+    border          : none;
+    border-radius   : 0;
+    font-family     : $font-display;
+    font-size       : 1.5rem;
+    text-transform  : uppercase;
+    cursor          : pointer;
+    transition      : all 0.2s;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+}
+
+.mb- {
+    &sm { margin-bottom: 2rem; }
+    &md { margin-bottom: 3rem; }
+    &lg { margin-bottom: 4rem; }
+    &hg { margin-bottom: 8rem; }
 }
