@@ -43,3 +43,5 @@ body {
     grid-template-rows   : 80vh min-content 40vw repeat(3, min-content);
     grid-template-columns: #{$grid-cols}; // Because it's a string
 }
+
+svg { padding: 0.05rem; } // Fix for cutted icons
