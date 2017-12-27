@@ -1,9 +1,14 @@
 %heading {
     font-family: $font-display;
     font-weight: 400;
+}
 
-    &--light { color: $grey-light-1; }
-    &--dark  { color: $grey-dark-1; }
+%heading-light {
+    color: $grey-light-1;
+}
+
+%heading-dark {
+    color: $grey-dark-1;
 }
 
 h1, .heading-1 {
@@ -20,6 +25,11 @@ h2, .heading-2 {
     line-height: 1;
 }
 
+.heading-2 {
+    &--light { @extend %heading-light; }
+    &--dark  { @extend %heading-dark; }
+}
+
 h3, .heading-3 {
     @extend %heading;
     color         : $color-primary;
@@ -27,9 +37,19 @@ h3, .heading-3 {
     text-transform: uppercase;
 }
 
+.heading-3 {
+    &--light { @extend %heading-light; }
+    &--dark  { @extend %heading-dark; }
+}
+
 h4, .heading-4 {
     @extend %heading;
     font-size: 1.9rem;
+}
+
+.heading-4 {
+    &--light { @extend %heading-light; }
+    &--dark  { @extend %heading-dark; }
 }
 
 .btn {

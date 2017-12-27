@@ -16,7 +16,14 @@ $font-display: 'Josefin Sans', sans-serif;
 /* GRID
   To use named CSS grid lines is necessary a string like the one below, if not, it'll get a compilation error
 */
-$grid-cols: '[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
+$grid-cols     : '[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
+$grid-cols-less: '[full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
+
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px
+$bp-large  : 62.5em; // 1000px
+
 
 *:not(img),
 *::before,
@@ -29,6 +36,10 @@ $grid-cols: '[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [ce
 html {
     box-sizing: border-box;
     font-size : 62.5%;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
 }
 
 body {
@@ -42,6 +53,11 @@ body {
     display              : grid;
     grid-template-rows   : 80vh min-content 40vw repeat(3, min-content);
     grid-template-columns: #{$grid-cols}; // Because it's a string
+
+    @media only screen and (max-width: $bp-large) {
+        grid-template-rows   : 6rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns: #{$grid-cols-less};
+    }
 }
 
 svg { padding: 0.05rem; } // Fix for cutted icons
