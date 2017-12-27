@@ -4,6 +4,53 @@
     grid-gap             : 7rem;
     grid-column          : center-start / center-end;
     margin               : 15rem 0;
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1366),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1366),
+           only screen and (max-width: $bp-1366) {
+        margin: 9vh 0;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024) {
+        margin: 8rem 0;
+    }
+
+    @media only screen and (max-width: $bp-1000) {
+        margin: 8vh 0;
+    }
+
+    @media only screen and (max-width: $bp-812) {
+        grid-gap: 6rem;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-812),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-812) {
+        margin: 13vh 0;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-768),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-768) {
+        margin: 5vh 0;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-736),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-736) {
+        margin: 12vh 0;
+    }
+
+    @media only screen and (max-width: $bp-667) {
+        margin: 7vh 0;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-667),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-667) {
+        margin: 13vh 0;
+    }
+
+    @media only screen and (max-width: $bp-414) {
+        margin: 7vh 0;
+    }
 }
 
 .home {
@@ -48,17 +95,12 @@
     }
 
     &__location,
-    &__rooms {
-        margin-top: 2.5rem;
-    }
-
-    &__location,
     &__rooms,
     &__area,
     &__price {
         display    : flex;
         align-items: center;
-        margin-left: 1.5rem;
+        margin: 0 1.5rem;
         font-size  : 1.5rem;
 
         svg {
@@ -67,6 +109,16 @@
             height      : 2rem;
             fill        : $color-primary;
         }
+    }
+
+    &__location,
+    &__area {
+        margin-right: 0;
+    }
+
+    &__location,
+    &__rooms {
+        margin-top: 2.5rem;
     }
 
     &__btn {

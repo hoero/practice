@@ -8,8 +8,11 @@
     padding         : 3rem;
     background-color: $color-secondary;
 
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+    only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+    only screen and (max-width: $bp-812) {
         grid-column: 1 / -1;
+        padding    : 5rem;
     }
 
     &__list {
@@ -19,12 +22,28 @@
         grid-row-gap         : 5vh;
         align-items          : center;
 
-        @media only screen and (max-width: $bp-medium) {
+        @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+        only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+        only screen and (max-width: $bp-812) {
             grid-template-columns: repeat(3, min-content max-content);
         }
 
-        @media only screen and (max-width: $bp-small) {
+        @media only screen and (max-width: $phone) {
             grid-template-columns: min-content max-content;
+        }
+    }
+
+    &__details {
+        &:not(:last-child) {
+            @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+            only screen and (max-width: $bp-812) {
+                margin-right: 3vh;
+            }
+
+            @media only screen and (max-width: $phone) {
+                margin-right: 0;
+            }
         }
     }
 

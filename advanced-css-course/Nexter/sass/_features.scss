@@ -5,6 +5,18 @@
     align-items          : start;
     margin               : 15rem 0;
     grid-column          : center-start / center-end;
+
+    @media only screen and (max-width: $bp-1366) {
+        margin: 8rem 0;
+    }
+
+    @media only screen and (max-width: $bp-812) {
+        grid-template-columns: repeat(2, minmax(25rem, 1fr));
+    }
+
+    @media only screen and (max-width: $phone) {
+        grid-template-columns: auto;
+    }
 }
 
 .feature {

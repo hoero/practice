@@ -1,6 +1,6 @@
 .header {
     display              : grid;
-    grid-template-rows   : 1fr min-content minmax(6rem, min-content) 1fr;
+    grid-template-rows   : 1fr min-content minmax(max-content, min-content) 1fr;
     grid-template-columns: minmax(min-content, max-content);
     grid-gap             : 1.5rem;
     justify-content      : center;
@@ -10,17 +10,26 @@
     background-size      : cover;
     background-position  : center;
 
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+           only screen and (max-width: $bp-812) {
         grid-column: 1 / -1;
+        padding    : 4rem 8rem;
     }
 
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: $phone) {
         padding: 5rem;
     }
 
     &__logo {
         justify-self: center;
         height      : 3rem;
+    }
+
+    h1 {
+        @media only screen and (max-width: $bp-414) {
+            margin-bottom: 3rem;
+        }
     }
 
     .btn {
@@ -51,6 +60,11 @@
         grid-column-gap      : 3rem;
         justify-items        : center;
         align-items          : center;
+
+        @media only screen and (max-width: $phone) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap             : 5rem;
+        }
 
         img {
             max-width : 100%;
