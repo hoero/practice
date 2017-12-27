@@ -21,8 +21,10 @@ $grid-cols-less: '[full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-s
 
 
 // RESPONSIVE BREAKPOINTS
-$bp-largest: 75em;   // 1200px
-$bp-large  : 62.5em; // 1000px
+$bp-largest: 75em;    // 1200px
+$bp-large  : 62.5em;  // 1000px
+$bp-medium : 50em;    // 800px
+$bp-small  : 37.5em;  // 600px
 
 
 *:not(img),
@@ -57,6 +59,10 @@ body {
     @media only screen and (max-width: $bp-large) {
         grid-template-rows   : 6rem 80vh min-content 40vw repeat(3, min-content);
         grid-template-columns: #{$grid-cols-less};
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
     }
 }
 
