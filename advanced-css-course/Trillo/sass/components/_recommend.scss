@@ -1,0 +1,25 @@
+.recommend {
+    display    : flex;
+    align-items: center;
+    color      : var(--grey-dark-3);
+    font-size  : 1.3rem;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+        display: flex;
+    }
+
+    &__photo {
+        width        : 4rem;
+        height       : 4rem;
+        border-radius: 50%;
+        border       : .3rem solid $white;
+
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+    }
+}

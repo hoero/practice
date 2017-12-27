@@ -1,0 +1,18 @@
+.header {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    height          : 7rem;
+    background-color: $white;
+    border-bottom   : var(--line);
+    font-size       : 1.4rem;
+
+    @include respond(phone) {
+        flex-wrap    : wrap;
+        align-content: space-around;
+    }
+
+    @include respond(max, $bp-500) {
+        height: 11rem;
+    }
+}

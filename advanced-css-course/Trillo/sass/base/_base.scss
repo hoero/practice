@@ -1,0 +1,28 @@
+*:not(img),
+*::before,
+*::after {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; // 1rem = 10px, 10/16 = 62.5%
+
+    @include respond(max, $bp-1100) {
+        font-size: 50%;
+    }
+}
+
+body {
+    min-height       : 100vh;
+    box-sizing       : border-box;
+    background-image : ladient(to right bottom, (var(--color-primary-light), var(--color-primary-dark)));
+    background-repeat: no-repeat;
+}
+
+::selection {
+    color           : $white;
+    background-color: var(--color-primary);
+}

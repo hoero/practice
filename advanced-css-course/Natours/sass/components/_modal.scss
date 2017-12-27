@@ -1,0 +1,160 @@
+.popup {
+    width     : 100vw;
+    height    : 100vh;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    opacity   : 0;
+    visibility: hidden;
+    z-index   : 3000;
+
+    @include transition(.3s);
+
+    // OPEN STATES
+    &:target {
+        opacity   : 1;
+        visibility: visible;
+    }
+
+    &:target .modal,
+    &:target .dialog {
+        opacity  : 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    // OVERLAY
+    &::before {
+        display         : block;
+        width           : 100%;
+        height          : 100vh;
+        content         : '';
+        background-color: rgba($black, .8);
+
+        @supports (backdrop-filter: blur(0)) or (-webkit-backdrop-filter: blur(0)) {
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter        : blur(10px);
+            background-color       : rgba($black, .3);
+        }
+    }
+
+    .modal,
+    .dialog {
+        display         : table;
+        width           : 75%;
+        overflow        : hidden;
+        background-color: $white;
+        border-radius   : .3rem;
+        box-shadow      : 0 2rem 4rem rgba($black, .2);
+        opacity         : 0;
+
+        @include center-box($new-value: scale(.25));
+        @include transition(.5s, $delay: .2s);
+
+        @include respond(tabland) {
+            display: block;
+        }
+
+        @include respond(phone) {
+            height  : 85%;
+            overflow: auto;
+        }
+
+        &__close {
+            &:link,
+            &:visited {
+                display        : inline-block;
+                position       : absolute;
+                top            : 2.5rem;
+                right          : 2.5rem;
+                color          : $grey-dark;
+                font-size      : 3rem;
+                line-height    : 1;
+                text-decoration: none;
+
+                @include transition(.2s);
+
+                @include respond(tabland) {
+                    color: $white;
+                }
+
+                @include respond(phone) {
+                    right: 5rem;
+                    color: $grey-dark;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                color: $color-primary;
+            }
+        }
+
+        &__left {
+            display: table-cell;
+            width  : 33.333%;
+
+            @include respond(tabland) {
+                display   : block;
+                width     : 100%;
+                max-height: 32.3rem;
+                overflow  : hidden;
+            }
+
+            @include respond(phone) {
+                max-height: none;
+            }
+        }
+
+        &__right {
+            display       : table-cell;
+            padding       : 3rem 5rem;
+            width         : 66.667%;
+            vertical-align: middle;
+
+            @include respond(tabland) {
+                display: block;
+                width  : 100%
+            }
+        }
+
+        &__img {
+            display: block;
+            width  : 100%;
+
+            @include respond(tabland) {
+                display: inline-block;
+                width  : 50%;
+                float  : left;
+            }
+
+            @include respond(phone) {
+                display: none;
+            }
+        }
+
+        &__text {
+            margin-bottom    : 4rem;
+            font-size        : 1.4rem;
+            -moz-hyphens     : auto;
+            -ms-hyphens      : auto;
+            -webkit-hyphens  : auto;
+            hyphens          : auto;
+
+            -moz-column-count: 2;
+            -moz-column-gap  : 4rem;
+            -moz-column-rule : .1rem solid $grey-light-2;
+            column-count     : 2;
+            column-gap       : 4rem;
+            column-rule      : .1rem solid $grey-light-2;
+
+            @include respond(phone) {
+                -moz-column-count: initial;
+                -moz-column-gap  : 0;
+                -moz-column-rule : 0 solid transparent;
+                column-count     : initial;
+                column-gap       : 0;
+                column-rule      : 0 solid transparent;
+            }
+        }
+    }
+}

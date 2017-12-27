@@ -1,0 +1,81 @@
+.story {
+    margin          : 0 auto;
+    padding         : 6rem 6rem 6rem 9rem;
+    width           : 75%;
+    background-color: rgba($white, .6);
+    border-radius   : $radius;
+    box-shadow      : 0 .3rem 6rem rgba($black, .1);
+    transform       : skewX(-12deg);
+    overflow: hidden;
+
+    @include respond(tablort) {
+        padding: 4rem 4rem 4rem 7rem;
+        width  : 100%;
+    }
+
+    @include respond(phone) {
+        transform: skewX(0);
+    }
+
+    &__shape {
+        width        : 15rem;
+        height       : 15rem;
+        float        : left;
+        transform    : translateX(-3rem) skewX(12deg);
+        overflow     : hidden;
+        border-radius: 50%;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside        : circle(50% at 50% 50%);
+            -webkit-clip-path    : circle(50% at 50% 50%);
+            clip-path            : circle(50% at 50% 50%);
+            border-radius        : initial;
+        }
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skewX(0);
+        }
+    }
+
+    &__img {
+        width              : 100%;
+        height             : 100%;
+        transform          : scale(1.4);
+        backface-visibility: hidden;
+        object-fit         : cover;
+
+        @include transition(.5s);
+    }
+
+    &:hover &__img {
+        transform: scale(1);
+        filter   : blur(.3rem) brightness(80%);
+    }
+
+    &__text {
+        transform: skewX(12deg);
+
+        @include respond(phone) {
+            transform: skewX(0);
+        }
+    }
+
+    &__caption {
+        opacity            : 0;
+        backface-visibility: hidden;
+
+        color              : $white;
+        font-size          : 1.7rem;
+        text-transform     : uppercase;
+        text-align         : center;
+
+        @include center-box(50%, 50%, -50%, 20%);
+        @include transition(.5s);
+    }
+
+    &:hover &__caption {
+        opacity  : 1;
+        transform: translate(-50%, -50%);
+    }
+}

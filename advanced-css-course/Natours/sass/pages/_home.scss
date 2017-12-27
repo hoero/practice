@@ -1,0 +1,87 @@
+.section {
+    padding         : 15rem 0;
+    background-color: $grey-light-1;
+
+    @include respond(tablort) {
+        padding: 10rem 0;
+    }
+
+    &.about {
+        margin-top: -20vh;
+        padding   : 25rem 0;
+
+        @include respond(tablort) {
+            padding: 20rem 0;
+        }
+    }
+
+    &.features {
+        margin-top: -10rem;
+        transform : skewY(-7deg);
+        padding   : 20rem 0;
+
+        @include gradient-img('nat-4-large');
+
+        @include respond(tablort) {
+            padding: 10rem 0;
+        }
+
+        & > * {
+            transform: skewY(7deg);
+        }
+    }
+
+    &.tours {
+        margin-top: -10rem;
+        padding   : 25rem 0 15rem;
+
+        @include respond(tablort) {
+            padding: 20rem 0 10rem;
+        }
+    }
+
+    &.stories {
+        padding         : 7.1rem 0;
+        position        : relative;
+        background-color: transparent;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            padding: 15rem 0;
+        }
+    }
+
+    &.book {
+        background-image: ladient(to right bottom, ($color-primary-light, $color-primary-dark));
+    }
+}
+
+.book {
+    &:not(.section) {
+        background-size: cover;
+        border-radius  : $radius;
+        box-shadow     : 0 1.5rem 4rem rgba($black, .2);
+
+        @include gradient-img-only('nat-10-large', 105deg);
+
+        @include respond(tabland) {
+            @include gradient-img-only('nat-10-large', 105deg, (rgba($white, .9) 0%, rgba($white, .9) 65%, transparent 65%));
+        }
+
+        @include respond(tablort) {
+            @include gradient-img-only('nat-10-large', to right, (rgba($white, .9), rgba($white, .9)));
+        }
+    }
+
+    &__form {
+        padding: 6rem;
+        width  : 50%;
+
+        @include respond(tabland) {
+            width: 65%;
+        }
+
+        @include respond(tablort) {
+            width: 100%;
+        }
+    }
+}

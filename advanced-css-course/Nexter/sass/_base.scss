@@ -1,0 +1,107 @@
+// COLOR VARIABLES
+$color-primary     : #c69963;
+$color-primary-dark: #B28451;
+$color-secondary   : #101d2c;
+$grey-light-1      : #f9f7f6;
+$grey-light-2      : #aaa;
+$grey-dark-1       : #54483A;
+$grey-dark-2       : #6D5D4B;
+
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+
+/* GRID
+  To use named CSS grid lines is necessary a string like the one below, if not, it'll get a compilation error
+*/
+$grid-cols     : '[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
+$grid-cols-less: '[full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end]';
+
+
+// RESPONSIVE BREAKPOINTS
+$phone  : 37.5em;    // 600/16  = 37.5   == 600px
+$tablort: 56.25em;   // 900/16  = 56.25  == 900px
+$tabland: 75em;      // 1200/16 = 75     == 1200px
+$bigesk : 112.5em;   // 1800/16 = 112.5  == 1800px
+$bp-1366: 85.375em;  // 1366/16 = 85.375 == 1100px
+$bp-1340: 83.75em;   // 1340/16 = 83.75  == 1340px
+$bp-1100: 68.75em;   // 1100/16 = 68.75  == 1100px
+$bp-1136: 71em;      // 1136/16 = 71     == 1136px
+$bp-1024: 64em;      // 1024/16 = 64     == 1024px
+$bp-1000: 62.5em;    // 1000/16 = 62.5   == 1000px
+$bp-812 : 50.75em;   // 812/16  = 50.75  == 812px
+$bp-800 : 50em;      // 800/16  = 50     == 800px
+$bp-768 : 48em;      // 768/16  = 48     == 768px
+$bp-736 : 46em;      // 736/16  = 46     == 736px
+$bp-667 : 41.688em;  // 667/16  = 41.688 == 667px
+$bp-640 : 40em;      // 640/16  = 40     == 640px
+$bp-568 : 35.5em;    // 568/16  = 35.5   == 568px
+$bp-500 : 31.25em;   // 500/16  = 31.25  == 500px
+$bp-414 : 25.875em;  // 414/16  = 25.875 == 414px
+$bp-375 : 23.44em;   // 375/16  = 23.44  == 375px
+$bp-320 : 20em;      // 320/16  = 20     == 320px
+
+
+*:not(img),
+*::before,
+*::after {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size : 62.5%;
+
+    @media only screen and (max-width: $tabland) {
+        font-size: 50%;
+    }
+}
+
+body {
+    color      : $grey-dark-2;
+    font-family: $font-primary;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.container {
+    display              : grid;
+    grid-template-rows   : 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: #{$grid-cols}; // Because it's a string
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024) {
+        grid-template-rows   : 6rem calc(100vh - 27.5rem);
+        grid-template-columns: #{$grid-cols-less};
+    }
+
+    @media only screen and (max-width: $bp-1000) {
+        grid-template-rows   : 6rem 80vh;
+        grid-template-columns: #{$grid-cols-less};
+    }
+
+    @media only screen and (max-width: $bp-812) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-768),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-768) {
+        grid-template-rows: 6rem calc(100vh - 27.5rem);
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-736),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-736) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $phone),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $phone) {
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
+}
+
+svg { padding: 0.01rem; } // Fix for cutted icons
