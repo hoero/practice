@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "./the-complete-javascript-course/9-forkify"
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "Fira Code",
+		"files.autoSave": "onWindowChange"
+	}
+}
