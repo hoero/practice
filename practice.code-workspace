@@ -6,6 +6,6 @@
 	],
 	"settings": {
 		"editor.fontFamily": "Fira Code",
-		"files.autoSave": "onWindowChange"
+		"files.autoSave": "onFocusChange"
 	}
 }
