@@ -1,9 +1,11 @@
 import Search from './models/Search'
 import Recipe from './models/Recipe'
 import List from './models/List'
+import Likes from './models/Likes'
 import * as searchView from './views/searchView'
 import * as recipeView from './views/recipeView'
 import * as listView from './views/listView'
+import * as likesView from './views/likesView'
 import { domStrs, dome, renderLoader, clearLoader } from './views/base'
 
 /** Global state of the app
@@ -124,7 +126,7 @@ dome.shoppingList.addEventListener('click', e => {
         // Delete from UI
         listView.deleteItem(id);
 
-    // Handle the count update
+        // Handle the count update
     } else if (e.target.matches(`.${domStrs.shoppingCountVal}`)) {
         const val = parseFloat(e.target.value, 10);
         model.list.updateCount(id, val);
@@ -134,7 +136,36 @@ dome.shoppingList.addEventListener('click', e => {
 
 // Likes controller
 // ----------------
+const controlLikes = () => {
+    if (!model.likes) model.likes = new Likes();
+    const currentID = model.recipe.id;
 
+    // User has NOT liked the current recipe yet
+    if (!model.likes.isLiked(currentID)) {
+        // 1. Add like to the state
+        const newLike = model.likes.addLike(
+            currentID,
+            model.recipe.title,
+            model.recipe.author,
+            model.recipe.img
+        );
+
+        // 2. Toggle the like button
+
+        // 3. Add like to the UI list
+        console.log(model.likes);
+
+        // User HAS liked the current recipe
+    } else {
+        // 1. Add like to the state
+        model.likes.deleteLike(currentID);
+
+        // 2. Toggle the like button
+
+        // 3. Add like to the UI list
+        console.log(model.likes);
+    }
+};
 
 
 // Handling recipe button clicks
@@ -150,6 +181,10 @@ dome.recipe.addEventListener('click', e => {
         model.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(model.recipe);
     } else if (e.target.matches(`.${domStrs.addBtn}, .${domStrs.addBtn} *`)) {
+        // Add ingredients to the shopping list
         controlShop();
+    } else if (e.target.matches(`.${domStrs.likeBtn}, .${domStrs.likeBtn} *`)) {
+        // Add recipe to the likes list
+        controlLikes();
     }
 });

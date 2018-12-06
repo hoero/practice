@@ -17,7 +17,8 @@ export const domStrs = {
     shoppingItem: 'shopping__item',
     shoppingCountVal: 'shopping__count-value',
     addBtn: 'recipe__btn--add',
-    deleteBtn: 'shopping__delete'
+    deleteBtn: 'shopping__delete',
+    likeBtn: 'recipe__love'
 };
 
 export const getDOM = el => document.querySelector(el);
@@ -29,7 +30,8 @@ export const dome = {
     searchResList: getDOM(`.${domStrs.searchResList}`),
     searchResPages: getDOM(`.${domStrs.searchResPages}`),
     recipe: getDOM(`.${domStrs.recipe}`),
-    shoppingList: getDOM(`.${domStrs.shoppingList}`)
+    shoppingList: getDOM(`.${domStrs.shoppingList}`),
+    likeBtn: getDOM(`.${domStrs.likeBtn}`)
 };
 
 export const renderLoader = parent => {
