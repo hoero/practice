@@ -5,16 +5,25 @@ export const domStrs = {
     searchResList: 'results__list',
     searchResPages: 'results__pages',
     pagBtn: 'btn-inline',
-    loader: 'loader'
+    loader: 'loader',
+    recipe: 'recipe',
+    recipeItem: 'results__link',
+    selectedRecipe: 'results__link--active',
+    recipeServings: 'recipe__info-data--people',
+    recipeIng: 'recipe__count',
+    incBtn: 'btn-increase',
+    decBtn: 'btn-decrease'
 };
 
+export const getDOM = el => document.querySelector(el);
 
 export const dome = {
     searchForm: getDOM(`.${domStrs.searchForm}`),
     searchInput: getDOM(`.${domStrs.searchInput}`),
     searchRes: getDOM(`.${domStrs.searchRes}`),
     searchResList: getDOM(`.${domStrs.searchResList}`),
-    searchResPages: getDOM(`.${domStrs.searchResPages}`)
+    searchResPages: getDOM(`.${domStrs.searchResPages}`),
+    recipe: getDOM(`.${domStrs.recipe}`)
 };
 
 export const renderLoader = parent => {
@@ -33,9 +42,4 @@ export const clearLoader = () => {
     const loader = getDOM(`.${domStrs.loader}`);
 
     if (loader) loader.parentElement.removeChild(loader);
-};
-
-
-function getDOM(el) {
-    return document.querySelector(el);
 };

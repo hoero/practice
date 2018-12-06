@@ -1,5 +1,5 @@
 
-import { dome, domStrs } from './base'
+import { dome, domStrs, getDOM } from './base'
 
 export const getInput = () => dome.searchInput.value;
 
@@ -10,6 +10,16 @@ export const clearResults = () => {
     dome.searchResList.innerHTML = '';
     // Clear pagination buttons
     dome.searchResPages.innerHTML = '';
+};
+
+export const highlightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll(domStrs.recipeItem));
+
+    resultsArr.forEach(el => {
+        el.classList.remove(domStrs.selectedRecipe);
+    });
+
+    getDOM(`a[href="#${id}"]`).classList.add(domStrs.selectedRecipe);
 };
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
