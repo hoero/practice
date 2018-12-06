@@ -1,4 +1,4 @@
-import { dome, domeStrs, domStrs, getDOM } from './base';
+import { dome, domStrs, getDOM } from './base';
 import { Fraction } from 'fractional';
 
 export const clearRecipe = () => {

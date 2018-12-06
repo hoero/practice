@@ -12,7 +12,12 @@ export const domStrs = {
     recipeServings: 'recipe__info-data--people',
     recipeIng: 'recipe__count',
     incBtn: 'btn-increase',
-    decBtn: 'btn-decrease'
+    decBtn: 'btn-decrease',
+    shoppingList: 'shopping__list',
+    shoppingItem: 'shopping__item',
+    shoppingCountVal: 'shopping__count-value',
+    addBtn: 'recipe__btn--add',
+    deleteBtn: 'shopping__delete'
 };
 
 export const getDOM = el => document.querySelector(el);
@@ -23,7 +28,8 @@ export const dome = {
     searchRes: getDOM(`.${domStrs.searchRes}`),
     searchResList: getDOM(`.${domStrs.searchResList}`),
     searchResPages: getDOM(`.${domStrs.searchResPages}`),
-    recipe: getDOM(`.${domStrs.recipe}`)
+    recipe: getDOM(`.${domStrs.recipe}`),
+    shoppingList: getDOM(`.${domStrs.shoppingList}`)
 };
 
 export const renderLoader = parent => {

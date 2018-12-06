@@ -1,7 +1,9 @@
 import Search from './models/Search'
 import Recipe from './models/Recipe'
+import List from './models/List'
 import * as searchView from './views/searchView'
 import * as recipeView from './views/recipeView'
+import * as listView from './views/listView'
 import { domStrs, dome, renderLoader, clearLoader } from './views/base'
 
 /** Global state of the app
@@ -97,24 +99,57 @@ const controlRecipe = async () => {
 
 // ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
 
+
+// Shopping controller
+// -------------------
+const controlShop = () => {
+    // 1. Create a new list IF there's none yet
+    if (!model.list) model.list = new List();
+
+    // 2. Add each ingredient to the list and UI
+    model.recipe.ingredients.forEach(el => {
+        const item = model.list.addItem(el.count, el.unit, el.ingredient);
+        listView.renderItem(item);
+    });
+};
+
+// Handling delete/update list item events
+dome.shoppingList.addEventListener('click', e => {
+    const id = e.target.closest(`.${domStrs.shoppingItem}`).dataset.itemid;
+
+    // Handle the delete button
+    if (e.target.matches(`.${domStrs.deleteBtn}, .${domStrs.deleteBtn} *`)) {
+        // Delete from model
+        model.list.deleteItem(id);
+        // Delete from UI
+        listView.deleteItem(id);
+
+    // Handle the count update
+    } else if (e.target.matches(`.${domStrs.shoppingCountVal}`)) {
+        const val = parseFloat(e.target.value, 10);
+        model.list.updateCount(id, val);
+    }
+});
+
+
+// Likes controller
+// ----------------
+
+
+
 // Handling recipe button clicks
 dome.recipe.addEventListener('click', e => {
-    if (e.target.matches(`.${domStrs.decBtn}, .${domStrs.decBtn} * `)) {
+    if (e.target.matches(`.${domStrs.decBtn}, .${domStrs.decBtn} *`)) {
         // Decrease button is clicked
         if (model.recipe.servings > 1) {
             model.recipe.updateServings('dec');
             recipeView.updateServingsIngredients(model.recipe);
         }
-    } else if (e.target.matches(`.${domStrs.incBtn}, .${domStrs.incBtn} * `)) {
+    } else if (e.target.matches(`.${domStrs.incBtn}, .${domStrs.incBtn} *`)) {
         // Increase button is clicked
         model.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(model.recipe);
+    } else if (e.target.matches(`.${domStrs.addBtn}, .${domStrs.addBtn} *`)) {
+        controlShop();
     }
 });
-
-// Shopping controller
-// -------------------
-
-
-// Likes controller
-// ----------------
