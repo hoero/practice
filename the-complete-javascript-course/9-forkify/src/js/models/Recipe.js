@@ -25,6 +25,7 @@ export default class Recipe {
         // Assuming that we need 15 mins for each 3 ingredients
         const quantity = this.ingredients.length;
         const periods = Math.ceil(quantity / 3);
+
         this.time = periods * 15;
     }
 

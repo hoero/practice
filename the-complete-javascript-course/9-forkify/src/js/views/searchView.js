@@ -19,7 +19,7 @@ export const highlightSelected = id => {
         el.classList.remove(domStrs.selectedRecipe);
     });
 
-    getDOM(`a[href="#${id}"]`).classList.add(domStrs.selectedRecipe);
+    getDOM(`.${domStrs.recipeItem}[href="#${id}"]`).classList.add(domStrs.selectedRecipe);
 };
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
@@ -32,6 +32,31 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     // Render pagination buttons
     renderBtns(page, recipes.length, resPerPage);
 };
+
+/** Pasta with tomato and spinach
+ * acc: 0 / acc + cur.length = 5 / newTitle = ['Pasta']
+ * acc: 0 / acc + cur.length = 9 / newTitle = ['Pasta', 'with']
+ * acc: 0 / acc + cur.length = 15 / newTitle = ['Pasta', 'with', 'tomato']
+ * acc: 0 / acc + cur.length = 18 / newTitle = ['Pasta', 'with', 'tomato']
+ * acc: 0 / acc + cur.length = 25 / newTitle = ['Pasta', 'with', 'tomato']
+ */
+export const limitRecipeTitle = (title, limit = 17) => {
+    const newTitle = [];
+
+    if (title.length > limit) {
+        title.split(' ').reduce((acc, cur) => {
+            if (acc + cur.length <= limit) {
+                newTitle.push(cur);
+            }
+
+            return acc + cur.length;
+        }, 0);
+
+        return `${newTitle.join(' ')}...`;
+    }
+
+    return title;
+}
 
 function renderRecipe(recipe) {
     const markup = `
@@ -50,30 +75,6 @@ function renderRecipe(recipe) {
 
     dome.searchResList.insertAdjacentHTML('beforeend', markup);
 };
-
-/** Pasta with tomato and spinach
- * acc: 0 / acc + cur.length = 5 / newTitle = ['Pasta']
- * acc: 0 / acc + cur.length = 9 / newTitle = ['Pasta', 'with']
- * acc: 0 / acc + cur.length = 15 / newTitle = ['Pasta', 'with', 'tomato']
- * acc: 0 / acc + cur.length = 18 / newTitle = ['Pasta', 'with', 'tomato']
- * acc: 0 / acc + cur.length = 25 / newTitle = ['Pasta', 'with', 'tomato']
- */
-function limitRecipeTitle(title, limit = 17) {
-    const newTitle = [];
-
-    if (title.length > limit) {
-        title.split(' ').reduce((acc, cur) => {
-            if (acc + cur.length <= limit) {
-                newTitle.push(cur);
-            }
-            return acc + cur.length;
-        }, 0);
-
-        return `${newTitle.join(' ')}...`;
-    }
-
-    return title;
-}
 
 function createBtn(page, type) {
     let whichPage = type === 'prev' ? page - 1 : page + 1;

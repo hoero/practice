@@ -18,7 +18,13 @@ export const domStrs = {
     shoppingCountVal: 'shopping__count-value',
     addBtn: 'recipe__btn--add',
     deleteBtn: 'shopping__delete',
-    likeBtn: 'recipe__love'
+    likeBtn: 'recipe__love',
+    likeIconParent: 'recipe__love use',
+    likedIcon: 'icon-heart',
+    likeIcon: 'icon-heart-outlined',
+    likesMenu: 'likes__field',
+    likesList: 'likes__list',
+    likesLink: 'likes__link'
 };
 
 export const getDOM = el => document.querySelector(el);
@@ -31,7 +37,8 @@ export const dome = {
     searchResPages: getDOM(`.${domStrs.searchResPages}`),
     recipe: getDOM(`.${domStrs.recipe}`),
     shoppingList: getDOM(`.${domStrs.shoppingList}`),
-    likeBtn: getDOM(`.${domStrs.likeBtn}`)
+    likesMenu: getDOM(`.${domStrs.likesMenu}`),
+    likesList: getDOM(`.${domStrs.likesList}`)
 };
 
 export const renderLoader = parent => {

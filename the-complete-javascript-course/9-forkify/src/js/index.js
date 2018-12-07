@@ -92,14 +92,14 @@ const controlRecipe = async () => {
 
             // 6. Render recipe
             clearLoader();
-            recipeView.renderRecipe(model.recipe);
+            recipeView.renderRecipe(model.recipe, model.likes.isLiked(id));
         } catch (error) {
             console.log(`Error processing recipe: ${error}`);
         }
     }
 }
 
-// ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
+['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
 
 
 // Shopping controller
@@ -111,6 +111,7 @@ const controlShop = () => {
     // 2. Add each ingredient to the list and UI
     model.recipe.ingredients.forEach(el => {
         const item = model.list.addItem(el.count, el.unit, el.ingredient);
+
         listView.renderItem(item);
     });
 };
@@ -129,6 +130,7 @@ dome.shoppingList.addEventListener('click', e => {
         // Handle the count update
     } else if (e.target.matches(`.${domStrs.shoppingCountVal}`)) {
         const val = parseFloat(e.target.value, 10);
+
         model.list.updateCount(id, val);
     }
 });
@@ -151,9 +153,10 @@ const controlLikes = () => {
         );
 
         // 2. Toggle the like button
+        likesView.toggleLikeBtn(true);
 
         // 3. Add like to the UI list
-        console.log(model.likes);
+        likesView.renderLike(newLike);
 
         // User HAS liked the current recipe
     } else {
@@ -161,14 +164,32 @@ const controlLikes = () => {
         model.likes.deleteLike(currentID);
 
         // 2. Toggle the like button
+        likesView.toggleLikeBtn(false);
 
         // 3. Add like to the UI list
-        console.log(model.likes);
+        likesView.deleteLike(currentID);
     }
+
+    likesView.toggleLikeMenu(model.likes.getCount());
 };
+
+// Restore liked recipes on page load
+window.addEventListener('load', () => {
+    model.likes = new Likes();
+
+    // Restore likes
+    model.likes.readStorage();
+
+    // Toggle like menu button
+    likesView.toggleLikeMenu(model.likes.getCount());
+
+    // Render existing likes
+    model.likes.likes.forEach(like => likesView.renderLike(like));
+});
 
 
 // Handling recipe button clicks
+// ----------------
 dome.recipe.addEventListener('click', e => {
     if (e.target.matches(`.${domStrs.decBtn}, .${domStrs.decBtn} *`)) {
         // Decrease button is clicked
