@@ -1,0 +1,46 @@
+.sidebar {
+    display         : flex;
+    justify-content : center;
+    grid-row        : 1 / -1;
+    grid-column     : sidebar-start / sidebar-end;
+    background-color: $color-primary;
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+           only screen and (max-width: $bp-1000) {
+        grid-column    : 1 / -1;
+        grid-row       : 1 / 2;
+        justify-content: flex-end;
+        align-items    : center;
+    }
+}
+
+.nav-btn {
+    margin-top      : 3rem;
+    width           : 4.5rem;
+    height          : 2px;
+    background-color: white;
+    border          : none;
+    border-radius   : 0;
+
+    &::before,
+    &::after {
+        display         : block;
+        width           : 4.5rem;
+        height          : 2px;
+        content         : '';
+        background-color: white;
+    }
+
+    &::before { transform: translateY(-1.5rem); }
+    &::after  { transform: translateY(1.3rem); }
+
+    @media only screen and (min-resolution: 192dpi) and (max-width: $bp-1024),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: $bp-1024),
+           only screen and (max-width: $bp-1000) {
+        margin: 0 3rem;
+
+        &::before { transform: translateY(-1.2rem); }
+        &::after  { transform: translateY(1rem); }
+    }
+}

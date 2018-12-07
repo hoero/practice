@@ -1,0 +1,22 @@
+{
+    "liveSassCompile.settings.formats": [
+      // {
+      //   "format"       : "nested",
+      //   "extensionName": ".css",
+      //   "savePath"     : "/advanced-css-course/Natours/css"
+      // },
+      {
+        "format"       : "nested",
+        "extensionName": ".css",
+        "savePath"     : "/advanced-css-course/Nexter/css"
+      }
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**",
+        // Below put the project(s) that is/are not currently in development
+        "**/advanced-css-course/Natours/sass/**",
+        "**/advanced-css-course/Trillo/sass/**"
+    ],
+    "liveSassCompile.settings.generateMap": false
+}

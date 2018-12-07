@@ -1,0 +1,29 @@
+// Call to action
+.cta {
+    overflow  : hidden;
+    padding   : 3.5rem 0;
+    text-align: center;
+
+    @include respond(max, $bp-1024) {
+        flex: 0 1 auto;
+    }
+
+    @include respond(tablort) {
+        padding: 3rem 0;
+    }
+
+    @include respond(max, $bp-375) {
+        padding: 3.5rem;
+    }
+
+    @include respond(max, $bp-320) {
+        padding: 2.5rem;
+    }
+
+    &__book-now {
+        margin-bottom : 2.5rem;
+        font-size     : 2rem;
+        font-weight   : 300;
+        text-transform: uppercase;
+    }
+}

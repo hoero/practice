@@ -1,0 +1,370 @@
+.nav {
+    &__list {
+        list-style: none;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display        : flex;
+            align-items    : center;
+            text-decoration: none;
+            text-transform : uppercase;
+            color          : inherit;
+
+            @include transition(.2s);
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: darken($inherit, 10);
+        }
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__btn {
+        width           : 7rem;
+        height          : 7rem;
+        position        : fixed;
+        top             : 6rem;
+        right           : 6rem;
+        background-color: $white;
+        border-radius   : 100%;
+        box-shadow      : 0 1rem 3rem rgba($black, .1);
+        z-index         : 2000;
+        cursor          : pointer;
+
+        @include respond(tablort) {
+            top  : 4rem;
+            right: 4rem;
+        }
+
+        @include respond(phone) {
+            top  : 3rem;
+            right: 3rem;
+        }
+    }
+
+    &__bg {
+        width           : 6rem;
+        height          : 6rem;
+        position        : fixed;
+        top             : 6.5rem;
+        right           : 6.5rem;
+        background-image: radient(($color-primary-light, $color-primary-dark));
+        border-radius   : 100%;
+        z-index         : 1000;
+
+        @include transition(.8s, transform, cubic-bezier(0.86, 0, 0.07, 1));
+
+        @include respond(tablort) {
+            top  : 4.5rem;
+            right: 4.5rem;
+        }
+
+        @include respond(phone) {
+            top  : 3.5rem;
+            right: 3.5rem;
+        }
+    }
+
+    &__checkbox:checked ~ &__bg {
+        transform: scale(80);
+    }
+
+
+    // ICONS
+    &__menu-icon {
+        @include center-box;
+
+        &,
+        &::before,
+        &::after {
+            display         : inline-block;
+            width           : 3rem;
+            height          : .2rem;
+            background-color: $grey-dark-3;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            left    : 0;
+            content : '';
+
+            @include transition(.2s);
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__btn:hover &__menu-icon::before {
+        top: -1rem;
+    }
+
+    &__btn:hover &__menu-icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__btn &__menu-icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__btn &__menu-icon::before {
+        top      : 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__btn &__menu-icon::after {
+        top      : 0;
+        transform: rotate(-135deg);
+    }
+
+    &__icon {
+        @include icon($i22, var(--grey-dark-2));
+    }
+
+
+    // NOTIFICATIONS
+    &__notification {
+        display         : flex;
+        justify-content : center;
+        align-items     : center;
+        position        : absolute;
+        top             : 1.5rem;
+        right           : 1.1rem;
+
+        width           : 1.75rem;
+        height          : 1.75rem;
+        color           : $white;
+        background-color: var(--color-primary);
+        border-radius   : 50%;
+
+        font-size       : .8rem;
+
+        @include respond(max, $bp-1100) {
+            font-size: 1rem;
+        }
+    }
+
+
+    // USER
+    &__user-photo {
+        margin-right : 1rem;
+        height       : 3.75rem;
+        border-radius: 50%;
+    }
+
+
+    // HORIZONTAL LAYOUT
+    &.horizontal  {
+        align-self : stretch;
+    }
+
+    &.horizontal &__list  {
+        display    : flex;
+        align-items: center;
+        height     : 100%;
+    }
+
+    &.horizontal &__item  {
+        display    : flex;
+        position   : relative;
+        align-items: center;
+
+        margin     : 0;
+        padding    : 0 2rem;
+        height     : 100%;
+        cursor     : pointer;
+
+        &:hover {
+            background-color: var(--grey-light-2);
+
+            @include respond(max, $bp-500) {
+                background-color: transparent;
+            }
+        }
+    }
+
+
+    // ASIDE LAYOUT
+    &.aside {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-between;
+        font-size      : 1.4rem;
+
+        @include respond(tablort) {
+            flex-direction: row;
+        }
+    }
+
+    &.aside &__list {
+        margin: 3.5rem 0 0;
+
+        @include respond(tablort) {
+            display: flex;
+            margin : 0;
+            width  : 100%;
+        }
+    }
+
+    &.aside &__item  {
+        position: relative;
+        margin  : 0;
+
+        @include respond(tablort) {
+            flex: 1;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+
+            @include respond(tablort) {
+                margin : 0;
+            }
+        }
+
+        &::before {
+            content         : '';
+            position        : absolute;
+            top             : 0;
+            left            : 0;
+            width           : .3rem;
+            height          : 100%;
+            background-color: var(--color-primary);
+            transform       : scaleY(0);
+
+            @include gransition(transform .2s, width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s);
+        }
+
+        &:active::before {
+            background-color: var(--color-primary-light);
+        }
+    }
+
+    &.aside &__item:hover::before,
+    &.aside &__item.active::before {
+        width    : 100%;
+        transform: scaleY(1);
+    }
+
+    &.aside &__link {
+        &:link,
+        &:visited {
+            position: relative;
+            padding : 1.5rem 3rem;
+            color   : var(--grey-light-1);
+
+            @include respond(tablort) {
+                justify-content: center;
+                padding        : 2rem;
+            }
+
+            @include respond(phone) {
+                flex-direction: column;
+                padding       : 1.5rem .5rem;
+            }
+        }
+
+        // &:hover,
+        // &:active,
+        // &:focus {
+        //     color: darken($inherit, 10);
+        // }
+    }
+
+    &.aside &__icon {
+        @include icon($i17, currentColor, 2rem);
+
+        @include respond(phone) {
+            margin: 0 0 .7rem;
+            @include icon($i15);
+        }
+    }
+
+
+    // HIERARCHY
+    &.primary {
+        width     : 100%;
+        height    : 100vh;
+        position  : fixed;
+        top       : 0;
+        left      : 0;
+        opacity   : 0;
+        visibility: hidden;
+        z-index   : 1500;
+
+        @include transition(.8s, all, cubic-bezier(0.68, -0.55, 0.265, 1.55));
+    }
+
+    &.primary &__list {
+        text-align   : center;
+        counter-reset: anchor;
+        @include center-box;
+    }
+
+    &.primary &__link {
+        &:link,
+        &:visited {
+            padding         : 1rem 2rem;
+            font-size       : 3rem;
+            font-weight     : 300;
+            color           : $white;
+            background-image: ladient(120deg, (transparent 0%, transparent 50%, $white 50%));
+            background-size : 220%;
+
+            @include transition(.4s);
+
+            &::before {
+                display          : inline-block;
+                margin-right     : 1.5rem;
+                counter-increment: anchor;
+                content          : '0' counters(anchor, '.');
+            }
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            color              : $color-primary;
+            background-position: 100%;
+            transform          : translateX(1rem);
+        }
+    }
+
+    &__checkbox:checked ~ &.primary {
+        visibility: visible;
+        opacity   : 1;
+    }
+
+    &.tertiary &__link {
+        &:link,
+        &:visited {
+            background-color: $grey-dark-3;
+            color           : $grey-light-1;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            box-shadow: 0 1rem 2rem rgba($black, .4);
+            transform : rotate(5deg) scale(1.3);
+            color     : $color-primary;
+        }
+    }
+}

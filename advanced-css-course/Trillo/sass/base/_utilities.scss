@@ -1,0 +1,63 @@
+.u- {
+    &center-text {
+        text-align: center !important;
+    }
+
+    // @for $i from 1 through 10 {
+    //     &margin-bottom-#{$i} {
+    //         margin-bottom: #{$i}rem;
+    //     }
+    // }
+
+    &margin-bottom- {
+        &small  {
+            margin-bottom: $small;
+        }
+
+        &medium {
+            margin-bottom: $medium;
+
+            @include respond(tablort) {
+                margin-bottom: $medium-mobile;
+            }
+        }
+
+        &big    {
+            margin-bottom: $big;
+
+            @include respond(tablort) {
+                margin-bottom: $big-mobile;
+            }
+        }
+
+        &huge   {
+            margin-bottom: $huge;
+        }
+    }
+
+    &margin-top- {
+        &small  {
+            margin-top: $small;
+        }
+
+        &medium {
+            margin-top: $medium;
+
+            @include respond(tablort) {
+                margin-top: $medium-mobile;
+            }
+        }
+
+        &big    {
+            margin-top: $big;
+
+            @include respond(tablort) {
+                margin-top: $big-mobile;
+            }
+        }
+
+        &huge   {
+            margin-top: $huge;
+        }
+    }
+}

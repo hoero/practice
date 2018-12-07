@@ -1,0 +1,21 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color      : var(--grey-dark-2);
+}
+
+.legal {
+    padding   : 2.5rem;
+    color     : var(--grey-light-4);
+    font-size : 1.2rem;
+    text-align: center;
+
+    @include respond(tablort) {
+        display: none;
+    }
+}
+
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
