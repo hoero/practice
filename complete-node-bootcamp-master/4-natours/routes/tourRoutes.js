@@ -1,8 +1,8 @@
 const express = require('express');
 
-const { specific } = require('../common/data');
-const tourController = require('../controllers/tourController');
-const authController = require('../controllers/authController');
+const { specific } = require('./../common/data');
+const tourController = require('./../controllers/tourController');
+const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
