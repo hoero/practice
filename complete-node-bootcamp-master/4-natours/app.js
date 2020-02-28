@@ -8,12 +8,18 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 
-const { toursRoute, usersRoute, reviewsRoute } = require('./common/data');
+const {
+    toursRoute,
+    usersRoute,
+    reviewsRoute,
+    bookingsRoute
+} = require('./common/data');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorControllers');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
+const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
@@ -79,6 +85,7 @@ app.use('/', viewRouter);
 app.use(toursRoute, tourRouter);
 app.use(usersRoute, userRouter);
 app.use(reviewsRoute, reviewRouter);
+app.use(bookingsRoute, bookingRouter);
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
