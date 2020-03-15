@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "D:/practice/vue-2-the-complete-guide"
+		}
+	],
+	"settings": {
+		"editor.fontFamily": "Fira Code",
+		"files.autoSave": "onFocusChange"
+	}
+}
