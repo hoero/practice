@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <button @click="counter++">Increase</button>
+        <button @click="counter--">Decrease</button>
+        <button @click="secCounter++">Increase Second</button>
+        <p>Counter : {{ counter }} | {{ secCounter }}</p>
+        <p>Result : {{ result() }} | {{ output }}</p>
+        <a :href="link">Search</a>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                secCounter: 0,
+                link: 'http://duckduckgo.com'
+            },
+            computed: {
+                output: function () {
+                    console.log('Computed');
+                    return this.counter > 5 ? 'Greater than 5' : 'Less than 5';
+                }
+            },
+            watch: {
+                counter: function (val) {
+                    var vm = this;
+                    setTimeout(function () { vm.counter = 0 }, 2000);
+                }
+            },
+            methods: {
+                result: function () {
+                    console.log('Method');
+                    return this.counter > 5 ? 'Greater than 5' : 'Less than 5';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

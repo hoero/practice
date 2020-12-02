@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        .demo {
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="demo" :style="{backgroundColor: color}"></div>
+        <div class="demo" :style="styles"></div>
+        <div class="demo" :style="[styles, {height: width + 'px'}]"></div>
+        <hr>
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                color: 'green',
+                width: 100
+            },
+            computed: {
+                styles: function () {
+                    return {
+                        backgroundColor: this.color,
+                        width: this.width + 'px'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

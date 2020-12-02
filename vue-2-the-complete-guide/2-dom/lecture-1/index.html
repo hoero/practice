@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<div id="app">
+		<h1 v-once>{{ title }}</h1>
+		<p>{{ sayHello() }} - <a v-bind:href="link">Search</a></p>
+		<hr>
+		<p v-html="aLink"></p>
+	</div>
+
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				title: 'Hello World!',
+				link: 'http://duckduckgo.com',
+				aLink: '<a href="http://duckduckgo.com">Search</a>'
+			},
+			methods: {
+				sayHello: function () {
+					this.title = 'Hello';
+					return this.title;
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>
